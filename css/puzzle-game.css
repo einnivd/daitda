@@ -1,0 +1,107 @@
+/* 전체 섹션 배경 및 기본 텍스트 */
+.puzzle-game {
+  background-color: #000;
+  color: #fff;
+  padding: 100px 0;
+  text-align: center;
+  position: relative;
+  overflow: hidden; /* 배경 조각이 화면 밖으로 나가는 것 방지 */
+}
+.hero > h1 {
+    margin: 20px;
+}
+.hero > h2
+/* My Puzzle 큰 제목 */
+.puzzle-board h1 {
+  font-size: 60px;
+  font-weight: 400;
+  font-family: "Black Han Sans", sans-serif;
+  color: #9B73FC;
+  margin: 40px 0;
+  /* 시안의 흰색 테두리 효과 */
+  -webkit-text-stroke: 15px #fff;
+  paint-order: stroke fill;
+}
+
+/* 퍼즐 보드 영역 */
+.puzzle-board {
+  position: relative;
+  width: 500px;
+  height: 500px;
+  margin: 0 auto;
+  background-color: #e5dbff; /* 연보라색 보드 판 */
+  border-radius: 40px;
+  padding: 40px; /* 보드 테두리 여백 */
+  box-sizing: border-box;
+  
+  /* 조각 9개를 3x3으로 배치 */
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  gap: 10px; /* 조각 사이 간격 */
+}
+
+/* 보드판 배경 이미지 & 프레임 */
+/* 이 이미지들이 조각들과 겹치도록 absolute 처리 */
+.puzzle-board > img:nth-child(1),
+.puzzle-board > img:nth-child(2) {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 1; 
+  pointer-events: none; /* 클릭 방해 금지 */
+}
+
+/* 실제 퍼즐 조각들 */
+.puzzle-board > img:not(:nth-child(-n+2)) {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  position: relative;
+  z-index: 2; /* 배경보다 위로 */
+  transition: 0.3s;
+  cursor: pointer;
+}
+
+.puzzle-board > img:hover {
+  transform: scale(1.1);
+  z-index: 10;
+}
+
+/* 하단 완성도 영역 */
+.completion {
+  margin-top: 40px;
+}
+.completion-box {
+  width: 500px;
+  margin: 10px auto;
+}
+.completion-box img {
+  width: 100%;
+}
+
+/* 결과 보기 버튼 */
+.result-btn {
+  display: inline-block;
+  background-color: #845ef7;
+  padding: 15px 50px;
+  border-radius: 10px;
+  margin-top: 50px;
+  cursor: pointer;
+}
+.result-btn p {
+  font-weight: bold;
+  margin: 0;
+}
+
+/* --- 배경에 흩어진 조각들 (예시) --- */
+/* HTML에 배경용 조각들을 따로 추가하거나, 
+   현재 구조에서 특정 조각을 밖으로 뺄 때 사용 */
+.puzzle-game .bg-piece {
+  position: absolute;
+  width: 80px;
+  opacity: 0.7;
+}
