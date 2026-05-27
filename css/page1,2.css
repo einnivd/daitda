@@ -1,0 +1,394 @@
+/* =========================
+SECTION 02
+========================= */
+.youth-section {
+  position: relative;
+
+  width: 100%;
+  min-height: 2400px;
+
+  padding-top: 80px;
+
+  background: #000;
+
+  overflow: hidden;
+}
+
+/* =========================
+퍼즐 오브제
+========================= */
+.puzzle-left {
+  position: absolute;
+  top: 180px;
+  left: 280px;
+
+  width: 240px;
+
+  z-index: 3;
+}
+
+.puzzle-right {
+  position: absolute;
+  top: 190px;
+  right: 365px;
+  width: 169px;
+  z-index: 3;
+}
+
+/* =========================
+상단 영역
+========================= */
+.youth-top {
+  position: relative;
+  z-index: 5;
+
+  padding-top: 140px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* =========================
+타이틀
+========================= */
+.youth-title {
+  text-align: center;
+
+  color: #fff;
+
+  position: relative;
+  z-index: 20;
+}
+
+.youth-title p {
+  font-size: 52px;
+  font-weight: 900;
+
+  line-height: 1.1;
+
+  margin-bottom: 16px;
+}
+
+.youth-title span {
+  font-size: 18px;
+  font-weight: 500;
+
+  opacity: 0.9;
+}
+
+/* =========================
+캐릭터
+========================= */
+.youth-character {
+  position: absolute;
+  top: 210px;
+
+  z-index: 15;
+}
+
+.youth-character img {
+  position: absolute;
+  top: 30px;
+  left: -312px;
+  width: 600px;
+  display: block;
+}
+
+/* =========================
+설명 텍스트
+========================= */
+.youth-desc {
+  position: relative;
+  z-index: 20;
+
+  margin-top: 430px;
+
+  top: 260px;
+
+  text-align: center;
+
+  color: #fff;
+
+  font-size: 34px;
+  line-height: 1.5;
+  font-weight: 900;
+}
+
+/* =========================
+보라 배경 영역
+========================= */
+.youth-bottom {
+  position: relative;
+
+  margin-top: -320px;
+}
+
+/* =========================
+둥근 보라 배경
+========================= */
+.youth-bg {
+  position: absolute;
+  top: 0;
+  left: 50%;
+
+  transform: translateX(-50%);
+
+  width: 155%;
+  height: 1400px;
+
+  border-radius: 50%;
+
+  background: linear-gradient(180deg, #8d52ff 0%, #6e30ff 100%);
+}
+
+/* =========================
+카드 영역
+========================= */
+.card-wrap {
+  position: relative;
+  z-index: 30;
+
+  max-width: 1220px;
+  margin: 0 auto;
+
+  padding-top: 630px;
+
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: flex-start;
+
+  gap: 22px;
+}
+
+/* =========================
+카드 공통
+========================= */
+.info-card {
+  width: 220px;
+
+  padding: 24px;
+
+  border-radius: 26px;
+
+  position: relative;
+
+  backdrop-filter: blur(10px);
+}
+
+/* =========================
+카드 색상
+========================= */
+.info-card.blue {
+  background: rgba(196, 236, 255, 0.95);
+}
+
+.info-card.pink {
+  background: rgba(243, 177, 255, 0.95);
+}
+
+.info-card.purple {
+  background: rgba(157, 115, 252, 0.95);
+}
+
+/* =========================
+카테고리
+========================= */
+.category {
+  display: block;
+
+  margin-bottom: 18px;
+
+  color: #fff;
+
+  font-size: 14px;
+  font-weight: 800;
+}
+
+/* =========================
+카드 텍스트
+========================= */
+.info-card p {
+  color: #fff;
+
+  font-size: 18px;
+  line-height: 1.6;
+  font-weight: 700;
+}
+
+/* =========================
+계단형 카드 배치
+========================= */
+.info-card:nth-child(1) {
+  height: 340px;
+  margin-top: 40px;
+}
+
+.info-card:nth-child(2) {
+  height: 190px;
+  margin-top: 80px;
+}
+
+.info-card:nth-child(3) {
+  height: 220px;
+  margin-top: 0;
+}
+
+.info-card:nth-child(4) {
+  height: 200px;
+  margin-top: 60px;
+}
+
+.info-card:nth-child(5) {
+  height: 340px;
+  margin-top: 40px;
+}
+
+.info-card:nth-child(6) {
+  height: 200px;
+  margin-top: -40px;
+}
+
+.info-card:nth-child(7) {
+  height: 220px;
+  margin-top: -20px;
+}
+
+.info-card:nth-child(8) {
+  height: 200px;
+  margin-top: -30px;
+}
+
+/* =========================
+태블릿
+========================= */
+@media (max-width: 1100px) {
+  .youth-section {
+    min-height: 2800px;
+  }
+
+  .puzzle-left {
+    left: 40px;
+    width: 170px;
+  }
+
+  .puzzle-right {
+    right: 40px;
+    width: 170px;
+  }
+
+  .youth-title p {
+    font-size: 42px;
+  }
+
+  .youth-title span {
+    font-size: 16px;
+  }
+
+  .youth-character img {
+    width: 480px;
+  }
+
+  .youth-desc {
+    margin-top: 390px;
+    top: 240px;
+
+    font-size: 28px;
+  }
+
+  .youth-bottom {
+    margin-top: -250px;
+  }
+
+  .youth-bg {
+    height: 2300px;
+  }
+
+  .card-wrap {
+    max-width: 720px;
+
+    padding-top: 240px;
+  }
+
+  .info-card {
+    width: 220px;
+  }
+}
+
+/* =========================
+모바일
+========================= */
+@media (max-width: 700px) {
+  .youth-section {
+    min-height: auto;
+
+    padding-bottom: 120px;
+  }
+
+  .puzzle-left,
+  .puzzle-right {
+    width: 100px;
+
+    top: 110px;
+  }
+
+  .puzzle-left {
+    left: 10px;
+  }
+
+  .puzzle-right {
+    right: 10px;
+  }
+
+  .youth-top {
+    padding-top: 100px;
+  }
+
+  .youth-title p {
+    font-size: 32px;
+  }
+
+  .youth-title span {
+    font-size: 14px;
+  }
+
+  .youth-character {
+    position: relative;
+    top: auto;
+
+    margin-top: 40px;
+  }
+
+  .youth-character img {
+    width: 300px;
+  }
+
+  .youth-desc {
+    margin-top: 40px;
+    top: 0;
+
+    font-size: 20px;
+    line-height: 1.5;
+  }
+
+  .youth-bottom {
+    margin-top: -50px;
+  }
+
+  .youth-bg {
+    width: 180%;
+    height: 2400px;
+  }
+
+  .card-wrap {
+    padding: 140px 20px 0;
+  }
+
+  .info-card {
+    width: 100%;
+
+    height: auto !important;
+    margin-top: 0 !important;
+  }
+}
