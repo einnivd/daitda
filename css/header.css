@@ -2,6 +2,7 @@
 HEADER SECTION
 ========================= */
 .header-section {
+  font-family: "Black Han Sans", sans-serif;
   width: 100%;
   background: #000;
 
@@ -123,7 +124,6 @@ HEADER INNER
   text-decoration: none;
 
   font-size: 21px;
-  font-weight: 800;
   letter-spacing: -0.5px;
   line-height: 1;
 
@@ -200,7 +200,7 @@ HEADER INNER
 
   .cloud-left,
   .cloud-right {
-    width: 170px;
+    display: none;
   }
 }
 
@@ -229,6 +229,6 @@ HEADER INNER
 
   .cloud-left,
   .cloud-right {
-    width: 120px;
+    display: none;
   }
 }
