@@ -5,20 +5,20 @@
 /*   font-family: "Noto Sans KR", sans-serif; */
 @import url("reset.css");
 :root {
-  /* Color styles */
-  --main: rgba(116, 59, 255, 1);
-  --sub-1: rgba(235, 230, 255, 1);
-  --sub-2: rgba(251, 226, 255, 1);
-  --sub-3: rgba(210, 244, 255, 1);
-  --sub-1-1: rgba(155, 115, 252, 1);
-  --sub-2-1: rgba(240, 162, 246, 1);
-  --sub-3-1: rgba(184, 230, 255, 1);
+ /* Color styles */
+--main: rgba(116, 59, 255, 1);
+--sub-1: rgba(235, 230, 255, 1);
+--sub-2: rgba(251, 226, 255, 1);
+--sub-3: rgba(210, 244, 255, 1);
+--sub-1-1: rgba(155, 115, 252, 1);
+--sub-2-1: rgba(240, 162, 246, 1);
+--sub-3-1: rgba(184, 230, 255, 1);
 
-  /* Text-size styles */
-  /* base size: text (16px) */
-  --main: 2.25rem;
-  --sub: 4rem;
-  --desc: 0.94rem;
-  --card-hashtag: 0.94rem;
-  --text: 1rem;
+/* Text-size styles */
+/* base size: text (16px) */
+--title: 2.25rem;
+--sub: 4rem;
+--desc: 0.94rem;
+--card-hashtag: 0.94rem;
+--text: 1rem;
 }
