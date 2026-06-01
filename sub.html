@@ -4,36 +4,204 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>청년다잇다</title>
+    <link rel="stylesheet" href="css/reset.css" />
     <link rel="stylesheet" href="css/main.css" />
-    <link rel="stylesheet" href="css/puzzle-game.css" />
+    <link rel="stylesheet" href="css/header.css" />
     <link rel="stylesheet" href="css/footer.css" />
+    <link rel="stylesheet" href="css/puzzle-game.css" />
+
+    <!-- 2. jQuery -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
+    <!-- 4. 폰트어썸 -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+      integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+
+    <!-- 5. 스와이퍼 -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+    <!-- 7. seo 엔진 최적화 -->
+    <!-- 웹페이지의 설명을 정의 -->
+    <meta name="description" content="청년다잇다 웹사이트입니다." />
+    <!-- 웹페이지와 관련된 키워드를 정의 -->
+    <meta name="keywords" content="청년다잇다, 다잇다, daitda" />
+    <!-- 웹페이지의 저자를 정의  -->
+    <meta name="author" content="청년다잇다" />
+    <!-- 소셜 미디어에서 페이지가 공유될때 사용되는 제목 -->
+    <meta property="og:title" content="청년다잇다" />
+    <!-- 소셜 미디어에서 페이지가 공유될 때 표시되는 사이트 이름 -->
+    <meta property="og:site_name" content="청년다잇다 웹사이트" />
+    <!-- 소셜 미디어에서 페이지가 웹사이트임을 명시 -->
+    <meta property="og:type" content="website" />
+    <!-- Open Graph 프로토콜에서 사용되는 메타 태그의 속성 중 하나로, 
+     페이지의 간략한 설명을 제공하는 데 사용 -->
+    <!-- 소셜 미디어에서 공유될 때 사용되는 URL -->
+    <meta property="og:url" content="https://github.io/" />
+    <!-- 소셜 미디어에서 페이지가 공유될 때 표시되는 이미지 -->
+    <meta property="og:image" content="images/metaimg.png" />
+    <!-- 소셜 미디어에서 페이지가 공유될 때 사용되는 설명 -->
+    <meta property="og:description" content="청년다잇다 웹사이트입니다." />
+
+    <!-- 8. 파비콘 -->
+    <link
+      rel="icon"
+      type="image/png"
+      href="images/favicon/favicon-96x96.png"
+      sizes="96x96"
+    />
+    <link rel="icon" type="image/svg+xml" href="images/favicon/favicon.svg" />
+    <link rel="shortcut icon" href="images/favicon/favicon.ico" />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="images/favicon/apple-touch-icon.png"
+    />
+    <link rel="manifest" href="images/favicon/site.webmanifest" />
+
+    <!-- AOS -->
+    <!-- AOS CSS-->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+    <!-- AOS js -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+    <!-- 6. 자바스크립트 (defer를 붙이면 HTML이 다 읽힌 후 실행) -->
+    <script src="js/sub.js" defer></script>
   </head>
   <body>
     <!-- 전체 영역 -->
     <div class="wrap">
+      <section class="header-section">
+        <!-- 왼쪽 구름 오브제 -->
+        <img
+          src="images/main_page/image_32-removebg-preview 1.png"
+          alt=""
+          class="cloud-left"
+        />
+
+        <!-- 오른쪽 구름 오브제 -->
+        <img
+          src="images/main_page/image_32-removebg-preview 2.png"
+          alt=""
+          class="cloud-right"
+        />
+
+        <header class="header">
+          <div class="header-inner">
+            <!-- 햄버거 버튼 -->
+            <button class="menu-btn">
+              <span></span>
+              <span></span>
+              <span></span>
+            </button>
+
+            <!-- 왼쪽 메뉴 -->
+            <nav class="nav left-nav">
+              <a href="#">마이퍼즐</a>
+              <a href="#">청년지원</a>
+            </nav>
+
+            <!-- 가운데 로고 -->
+            <h1 class="logo">
+              <a href="#">
+                <img
+                  src="images/main_page/Asset 19 2-copy-0.png"
+                  alt="BAITDA 로고"
+                />
+              </a>
+            </h1>
+
+            <!-- 오른쪽 메뉴 -->
+            <nav class="nav right-nav">
+              <a href="#">자산플랜</a>
+              <a href="#">내가찜한</a>
+            </nav>
+
+            <!-- 유저 아이콘 -->
+            <a href="#" class="user-btn">
+              <i class="fa-regular fa-user"></i>
+            </a>
+          </div>
+        </header>
+      </section>
       <div class="inner">
+        <!-- 배경 퍼즐 조각 -->
+         <div class="background-piece">
+          <img src="images/sub_page/puzzle-1.png" alt="퍼즐1">
+          <img src="images/sub_page/puzzle-2.png" alt="퍼즐2">
+          <img src="images/sub_page/puzzle-3.png" alt="퍼즐3">
+          <img src="images/sub_page/puzzle-4.png" alt="퍼즐4">
+          <img src="images/sub_page/puzzle-5.png" alt="퍼즐5">
+          <img src="images/sub_page/puzzle-6.png" alt="퍼즐6">
+         </div>
         <!-- 퍼즐 게임 섹션 -->
         <section class="puzzle-game">
+          <!-- 상단 카피 -->
           <div class="hero">
             <h1>흩어진 나의 조각들이 모여 기회로,<br />지금 맞춰지는 중</h1>
             <h3>나만의 퍼즐을 완성해 하나뿐인 리스트를 만들어보세요.</h3>
           </div>
           <!-- 퍼즐 보드 -->
           <div class="puzzle-board">
-              <h1>My Puzzle</h1>
-            <!-- 보드/프레임 -->
-            <img src="images/sub_page/board.png" alt="보드" />
-            <img src="images/sub_page/frame.png" alt="프레임" />
-            <!-- 조각 -->
-            <img src="images/sub_page/puzzle-purple.png" alt="purple" />
-            <img src="images/sub_page/puzzle-pink.png" alt="pink" />
-            <img src="images/sub_page/puzzle-purple.png" alt="purple" />
-            <img src="images/sub_page/puzzle-blue.png" alt="blue" />
-            <img src="images/sub_page/puzzle-purple.png" alt="purple" />
-            <img src="images/sub_page/puzzle-blue.png" alt="blue" />
-            <img src="images/sub_page/puzzle-purple.png" alt="purple" />
-            <img src="images/sub_page/puzzle-pink.png" alt="pink" />
-            <img src="images/sub_page/puzzle-purple.png" alt="purple" />
+            <h1>My Puzzle</h1>
+            <!-- 프레임 -->
+            <div class="frame">
+              <img
+                src="images/sub_page/frame.png"
+                alt="프레임"
+                class="frame-img"
+              />
+            </div>
+            <!-- 보드 카테고리 -->
+            <div class="board-category">
+              <p>취업지원</p>
+              <p>진로</p>
+              <p>청년금융</p>
+              <p>교육</p>
+              <p>주거/생활</p>
+              <p>창업</p>
+              <p>의료/건강</p>
+              <p>복지</p>
+              <p>문화/예술</p>
+            </div>
+            <!-- 퍼즐 조각 -->
+            <div class="piece">
+              <img src="images/sub_page/puzzle-purple.png" alt="조각1" />
+              <img src="images/sub_page/puzzle-pink.png" alt="조각2" />
+              <img src="images/sub_page/puzzle-purple.png" alt="조각3" />
+              <img src="images/sub_page/puzzle-blue.png" alt="조각4" />
+              <img src="images/sub_page/puzzle-purple.png" alt="조각5" />
+              <img src="images/sub_page/puzzle-blue.png" alt="조각6" />
+              <img src="images/sub_page/puzzle-purple.png" alt="조각7" />
+              <img src="images/sub_page/puzzle-pink.png" alt="조각8" />
+              <img src="images/sub_page/puzzle-purple.png" alt="조각9" />
+            </div>
+            <!-- 퍼즐 조각 카테고리 -->
+             <div class="piece-category">
+              <p>취업지원</p>
+              <p>진로</p>
+              <p>청년금융</p>
+              <p>교육</p>
+              <p>주거/생활</p>
+              <p>창업</p>
+              <p>의료/건강</p>
+              <p>복지</p>
+              <p>문화/예술</p>
+             </div>
+            <!-- 외곽선 -->
+            <img
+              src="images/sub_page/stroke.png"
+              alt="외곽선"
+              class="stroke-img"
+            />
           </div>
           <!-- 퍼즐 완성도 -->
           <div class="completion">
@@ -41,9 +209,30 @@
               <img src="images/sub_page/graph.png" alt="퍼즐 완성도" />
             </div>
           </div>
-          <!-- 결과 버튼 -->
+          <!-- 결과 보기 버튼 -->
           <div class="result-btn">
             <p>퍼즐 완성! 결과 보기</p>
+          </div>
+        </section>
+        <!-- 맞춤형 카드 섹션 -->
+        <section class="card">
+          <div class="card-1">
+            <div class="top">
+              <p>취업지원</p>
+              <p>D-10</p>
+            </div>
+            <div class="middle">
+              <img src="images/sub_page/image-1.png" alt="서류가방">
+              <div class="like"></div>
+            </div>
+            <div class="bottom">
+              <div class="title">청년인턴사업</div>
+              <div class="hashtag">
+                <div>#서울거주</div>
+                <div>#미취업자</div>
+                <div>#연령제한없음</div>
+              </div>
+            </div>
           </div>
         </section>
       </div>
@@ -54,7 +243,6 @@
           <div class="footer-logo">
             <img src="images/main_page/Asset 19 2.png" alt="청년 다잇다 로고" />
           </div>
-
           <!-- 오른쪽 정보 -->
           <div class="footer-right">
             <!-- 메뉴 -->

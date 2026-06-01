@@ -1,99 +1,336 @@
-/* 전체 섹션 배경 및 기본 텍스트 */
-.puzzle-game {
-  background-color: #000;
-  color: #fff;
-  padding: 100px 0;
-  text-align: center;
+.inner {
   position: relative;
-  overflow: hidden; /* 배경 조각이 화면 밖으로 나가는 것 방지 */
 }
-.hero > h1 {
-    margin: 20px;
-}
-.hero > h2
-/* My Puzzle 큰 제목 */
-.puzzle-board h1 {
-  font-size: 60px;
-  font-weight: 400;
-  font-family: "Black Han Sans", sans-serif;
-  color: #9B73FC;
-  margin: 40px 0;
-  /* 시안의 흰색 테두리 효과 */
-  -webkit-text-stroke: 15px #fff;
-  paint-order: stroke fill;
-}
-
-/* 퍼즐 보드 영역 */
-.puzzle-board {
-  position: relative;
-  width: 500px;
-  height: 500px;
-  margin: 0 auto;
-  background-color: #e5dbff; /* 연보라색 보드 판 */
-  border-radius: 40px;
-  padding: 40px; /* 보드 테두리 여백 */
-  box-sizing: border-box;
-  
-  /* 조각 9개를 3x3으로 배치 */
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: repeat(3, 1fr);
-  gap: 10px; /* 조각 사이 간격 */
-}
-
-/* 보드판 배경 이미지 & 프레임 */
-/* 이 이미지들이 조각들과 겹치도록 absolute 처리 */
-.puzzle-board > img:nth-child(1),
-.puzzle-board > img:nth-child(2) {
+/* 배경 퍼즐 조각 */
+.background-piece {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  object-fit: cover;
-  z-index: 1; 
-  pointer-events: none; /* 클릭 방해 금지 */
+  z-index: 999;
 }
-
-/* 실제 퍼즐 조각들 */
-.puzzle-board > img:not(:nth-child(-n+2)) {
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
+.background-piece img:nth-child(1) {
+  position: absolute;
+  top: 300px;
+  left: 200px;
+  width: 200px;
+}
+.background-piece img:nth-child(2) {
+  position: absolute;
+  top: 600px;
+  left: 200px;
+  width: 200px;
+}
+.background-piece img:nth-child(3) {
+  position: absolute;
+  top: 900px;
+  left: 200px;
+  width: 200px;
+}
+.background-piece img:nth-child(4) {
+  position: absolute;
+  top: 300px;
+  right: 200px;
+  width: 200px;
+}
+.background-piece img:nth-child(5) {
+  position: absolute;
+  top: 600px;
+  right: 200px;
+  width: 200px;
+}
+.background-piece img:nth-child(6) {
+  position: absolute;
+  top: 900px;
+  right: 200px;
+  width: 200px;
+}
+/* 퍼즐 게임 섹션 */
+.puzzle-game {
+  background-color: #000;
+  padding: 100px 0;
+  text-align: center;
   position: relative;
-  z-index: 2; /* 배경보다 위로 */
-  transition: 0.3s;
-  cursor: pointer;
+  overflow: hidden; /* 배경 조각이 화면 밖으로 나가는 것 방지 */
 }
-
-.puzzle-board > img:hover {
-  transform: scale(1.1);
-  z-index: 10;
+/* 상단 카피 */
+.hero {
+  margin: 120px 0 150px 0;
+  color: #fff;
 }
-
-/* 하단 완성도 영역 */
+.hero > h1 {
+  font-size: 3rem;
+}
+.hero > h3 {
+  font-weight: 400;
+  font-size: 1.2rem;
+  margin: 50px;
+}
+/* 퍼즐 보드 */
+.puzzle-board {
+  position: relative;
+  margin: 0 auto;
+  width: 800px;
+  height: 800px;
+  background-color: var(--sub-1);
+  border-radius: 50px;
+}
+.puzzle-board h1 {
+  position: absolute;
+  top: -12%;
+  left: 21%;
+  font-size: 5rem;
+  font-weight: 400;
+  font-family: "Black Han Sans", sans-serif;
+  color: var(--sub-1-1);
+  margin: 40px 0;
+  -webkit-text-stroke: 19px #fff;
+  paint-order: stroke fill;
+  z-index: 999;
+}
+/* 프레임 */
+.frame {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 700px;
+  height: 700px;
+}
+.frame-img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+}
+/* 보드 카테고리 */
+.board-category {
+  position: absolute;
+  color: #666;
+  line-height: 0.6;
+  font-size: 2.5rem;
+  font-weight: lighter;
+  font-family: "Black Han Sans", sans-serif;
+}
+.board-category p:nth-child(1) {
+  position: absolute;
+  top: 190px;
+  left: 120px;
+  width: 160px;
+}
+.board-category p:nth-child(2) {
+  position: absolute;
+  top: 190px;
+  left: 320px;
+  width: 160px;
+}
+.board-category p:nth-child(3) {
+  position: absolute;
+  top: 190px;
+  left: 519px;
+  width: 160px;
+}
+.board-category p:nth-child(4) {
+  position: absolute;
+  top: 390px;
+  left: 120px;
+  width: 160px;
+}
+.board-category p:nth-child(5) {
+  position: absolute;
+  top: 390px;
+  left: 320px;
+  width: 160px;
+}
+.board-category p:nth-child(6) {
+  position: absolute;
+  top: 390px;
+  left: 519px;
+  width: 160px;
+}
+.board-category p:nth-child(7) {
+  position: absolute;
+  top: 590px;
+  left: 120px;
+  width: 160px;
+}
+.board-category p:nth-child(8) {
+  position: absolute;
+  top: 590px;
+  left: 320px;
+  width: 160px;
+}
+.board-category p:nth-child(9) {
+  position: absolute;
+  top: 590px;
+  left: 519px;
+  width: 160px;
+}
+/* 퍼즐 조각 */
+.piece {
+  position: absolute;
+  z-index: 99;
+  /* display: none;  */
+}
+.piece img:nth-child(1) {
+  position: absolute;
+  top: 98px;
+  left: 52px;
+  width: 296px;
+}
+.piece img:nth-child(2) {
+  position: absolute;
+  top: 51px;
+  left: 301px;
+  width: 201px;
+}
+.piece img:nth-child(3) {
+  position: absolute;
+  top: 99px;
+  left: 453px;
+  width: 296px;
+}
+.piece img:nth-child(4) {
+  position: absolute;
+  top: 252px;
+  left: 99px;
+  width: 201px;
+}
+.piece img:nth-child(5) {
+  position: absolute;
+  top: 300px;
+  left: 252px;
+  width: 296px;
+}
+.piece img:nth-child(6) {
+  position: absolute;
+  top: 253px;
+  left: 501px;
+  width: 201px;
+}
+.piece img:nth-child(7) {
+  position: absolute;
+  top: 500px;
+  left: 51px;
+  width: 296px;
+}
+.piece img:nth-child(8) {
+  position: absolute;
+  top: 453px;
+  left: 299px;
+  width: 201px;
+}
+.piece img:nth-child(9) {
+  position: absolute;
+  top: 501px;
+  left: 452px;
+  width: 296px;
+  /* display: none; */
+}
+/* 퍼즐 조각 카테고리 */
+.piece-category {
+  position: absolute;
+  color: #000;
+  line-height: 0.6;
+  font-size: 2.5rem;
+  font-weight: lighter;
+  font-family: "Black Han Sans", sans-serif;
+  z-index: 999;
+}
+.piece-category p:nth-child(1) {
+  position: absolute;
+  top: 190px;
+  left: 120px;
+  width: 160px;
+}
+.piece-category p:nth-child(2) {
+  position: absolute;
+  top: 190px;
+  left: 320px;
+  width: 160px;
+}
+.piece-category p:nth-child(3) {
+  position: absolute;
+  top: 190px;
+  left: 519px;
+  width: 160px;
+}
+.piece-category p:nth-child(4) {
+  position: absolute;
+  top: 390px;
+  left: 120px;
+  width: 160px;
+}
+.piece-category p:nth-child(5) {
+  position: absolute;
+  top: 390px;
+  left: 320px;
+  width: 160px;
+}
+.piece-category p:nth-child(6) {
+  position: absolute;
+  top: 390px;
+  left: 519px;
+  width: 160px;
+}
+.piece-category p:nth-child(7) {
+  position: absolute;
+  top: 590px;
+  left: 120px;
+  width: 160px;
+}
+.piece-category p:nth-child(8) {
+  position: absolute;
+  top: 590px;
+  left: 320px;
+  width: 160px;
+}
+.piece-category p:nth-child(9) {
+  position: absolute;
+  top: 590px;
+  left: 519px;
+  width: 160px;
+}
+/* 외곽선 */
+.stroke-img {
+  /* display: none; */
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 700px;
+  height: 700px;
+  z-index: 999;
+}
+/* 퍼즐 완성도 */
 .completion {
-  margin-top: 40px;
+  margin: 100px auto;
+  width: 800px;
 }
 .completion-box {
-  width: 500px;
-  margin: 10px auto;
+  width: 100%;
+  padding: 7px;
+  border-radius: 100px;
+  background-color: #fff;
 }
 .completion-box img {
   width: 100%;
+  display: block;
 }
-
 /* 결과 보기 버튼 */
 .result-btn {
   display: inline-block;
-  background-color: #845ef7;
   padding: 15px 50px;
-  border-radius: 10px;
   margin-top: 50px;
   cursor: pointer;
+  font-family: "Noto Sans KR", sans-serif;
+  font-size: 1.3rem;
+  color: #fff;
+  background-color: var(--main);
 }
 .result-btn p {
-  font-weight: bold;
+  font-weight: 400;
   margin: 0;
 }
 
