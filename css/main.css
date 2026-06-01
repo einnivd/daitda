@@ -5,6 +5,7 @@
 /*   font-family: "Noto Sans KR", sans-serif; */
 @import url("reset.css");
 :root {
+
  /* Color styles */
 --main: rgba(116, 59, 255, 1);
 --sub-1: rgba(235, 230, 255, 1);
