@@ -47,7 +47,7 @@
   width: 200px;
 }
 /* 퍼즐 게임 섹션 */
-.puzzle-game {
+.puzzle-section {
   background-color: #000;
   padding: 100px 0;
   text-align: center;
@@ -332,13 +332,4 @@
 .result-btn p {
   font-weight: 400;
   margin: 0;
-}
-
-/* --- 배경에 흩어진 조각들 (예시) --- */
-/* HTML에 배경용 조각들을 따로 추가하거나, 
-   현재 구조에서 특정 조각을 밖으로 뺄 때 사용 */
-.puzzle-game .bg-piece {
-  position: absolute;
-  width: 80px;
-  opacity: 0.7;
 }

@@ -1,0 +1,130 @@
+/* 맞춤형 혜택 개수 섹션 */
+.count-section{
+   text-align: center;
+   margin: 100px auto;
+}
+.count-section p{
+    font-size: 20px;
+    font-weight: 500;
+}
+.count-section p span{
+    font-weight: 800;
+    color: var(--main);
+}
+/* 맞춤형 카드 섹션 */
+.card-section {
+  width: 100%;
+  height: 90vh;
+  display: grid;
+  /* 한 줄에 4개씩, 각 카드는 동일한 비율(1fr)로 배치 */
+  grid-template-columns: repeat(4, 1fr);
+  max-width: 1200px;
+  margin: 100px auto;
+}
+#card {
+  width: 250px;
+  height: 350px;
+  border: 1px solid #999;
+  border-radius: 30px;
+  overflow: hidden;
+  font-family: "Noto Sans KR", sans-serif;
+  box-shadow: 0 0px 15px rgba(0, 0, 0, 0.3);
+}
+/* 카드 전체 컨테이너 */
+.card-1,
+.card-3,
+.card-5,
+.card-7{
+   background-color: var(--sub-1);
+}
+.card-2,
+.card-8{
+   background-color: var(--sub-2);
+}
+.card-4,
+.card-6{
+   background-color: var(--sub-3);
+}
+
+/* 카드 상단 */
+.top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 7px 10px;
+}
+
+.card-category {
+  background: #fff;
+  padding: 7px 20px;
+  border-radius: 20px;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.d-day {
+  background: #fff;
+  padding: 7px 15px;
+  border-radius: 20px;
+  font-size: 14px;
+  font-weight: bold;
+  color: var(--main);
+}
+
+/* 카드 중앙 */
+.middle {
+  position: relative;
+  height: 180px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* background-color: var(--sub-1); */
+}
+
+.middle img {
+  height: 100%;
+  object-fit: contain;
+}
+
+/* 별 아이콘 위치 및 스타일 */
+.like {
+  position: absolute;
+  right: 5px;
+  bottom: 5px;
+  font-size: 28px;
+  cursor: pointer;
+}
+
+/* 별 클릭 시 스타일 (JS 연동용) */
+.like .fa-solid {
+  color: #FAFF00; 
+  -webkit-text-stroke: 1px #000;
+}
+
+/* 카드 하단 */
+.bottom {
+  padding: 5px 15px;
+  height: 35%;
+  background-color: #fff;
+}
+.title {
+  font-size: 18px;
+  font-weight: 800;
+  color: #000;
+}
+.hashtag-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  /* padding: 10px 5px; */
+  padding-top: 10px;
+}
+.tag {
+  border: 1px solid #ccc;
+  padding: 3px 16px;
+  border-radius: 20px;
+  font-size: 13px;
+  color: #333;
+  line-height: 1rem;
+  background-color: #f9f9f9;
+}
