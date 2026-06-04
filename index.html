@@ -5,14 +5,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>청년다잇다</title>
 
-    <!-- 1. CSS -->
-    <link rel="stylesheet" href="css/main.css" />
+    <!-- 기본 CSS -->
     <link rel="stylesheet" href="css/reset.css" />
+    <link rel="stylesheet" href="css/main.css" />
 
-    <!-- 2. jQuery -->
-    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <!-- AOS CSS -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
 
-    <!-- 4. 폰트어썸 -->
+    <!-- Swiper CSS -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+    />
+
+    <!-- Font Awesome -->
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
@@ -21,40 +27,18 @@
       referrerpolicy="no-referrer"
     />
 
-    <!-- 5. 스와이퍼 -->
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
-    />
-    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-
-    <!-- 6. 자바스크립트 (defer를 붙이면 HTML이 다 읽힌 후 실행) -->
-    <script src="js/main.js" defer></script>
-    <script src="js/sub.js" defer></script>
-
-    <!-- 7. seo 엔진 최적화 -->
-    <!-- 웹페이지의 설명을 정의 -->
+    <!-- META -->
     <meta name="description" content="청년다잇다 웹사이트입니다." />
-    <!-- 웹페이지와 관련된 키워드를 정의 -->
     <meta name="keywords" content="청년다잇다, 다잇다, daitda" />
-    <!-- 웹페이지의 저자를 정의  -->
     <meta name="author" content="청년다잇다" />
-    <!-- 소셜 미디어에서 페이지가 공유될때 사용되는 제목 -->
     <meta property="og:title" content="청년다잇다" />
-    <!-- 소셜 미디어에서 페이지가 공유될 때 표시되는 사이트 이름 -->
     <meta property="og:site_name" content="청년다잇다 웹사이트" />
-    <!-- 소셜 미디어에서 페이지가 웹사이트임을 명시 -->
     <meta property="og:type" content="website" />
-    <!-- Open Graph 프로토콜에서 사용되는 메타 태그의 속성 중 하나로, 
-     페이지의 간략한 설명을 제공하는 데 사용 -->
-    <!-- 소셜 미디어에서 공유될 때 사용되는 URL -->
     <meta property="og:url" content="https://github.io/" />
-    <!-- 소셜 미디어에서 페이지가 공유될 때 표시되는 이미지 -->
     <meta property="og:image" content="images/metaimg.png" />
-    <!-- 소셜 미디어에서 페이지가 공유될 때 사용되는 설명 -->
     <meta property="og:description" content="청년다잇다 웹사이트입니다." />
 
-    <!-- 8. 파비콘 -->
+    <!-- FAVICON -->
     <link
       rel="icon"
       type="image/png"
@@ -69,17 +53,29 @@
       href="images/favicon/apple-touch-icon.png"
     />
     <link rel="manifest" href="images/favicon/site.webmanifest" />
+    <!-- =========================
+    SCRIPT
+    라이브러리 먼저, 내 JS는 마지막
+    ========================= -->
 
-    <!-- AOS -->
-    <!-- AOS CSS-->
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
-    <!-- AOS js -->
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
+    <!-- AOS JS -->
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+    <!-- Swiper JS -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+    <!-- Custom JS -->
+    <script src="js/main/main.js"></script>
+    <script src="js/sub/sub.js"></script>
   </head>
+
   <body>
     <!-- =========================
-상단 메뉴바
-========================= -->
+    상단 메뉴바
+    ========================= -->
     <section class="header-section">
       <!-- 왼쪽 구름 오브제 -->
       <img
@@ -106,13 +102,13 @@
 
           <!-- 왼쪽 메뉴 -->
           <nav class="nav left-nav">
-            <a href="#">마이퍼즐</a>
+            <a href="sub.html">마이퍼즐</a>
             <a href="#">청년지원</a>
           </nav>
 
           <!-- 가운데 로고 -->
           <h1 class="logo">
-            <a href="#">
+            <a href="index.html">
               <img
                 src="images/main_page/Asset 19 2-copy-0.png"
                 alt="BAITDA 로고"
@@ -133,12 +129,9 @@
         </div>
       </header>
     </section>
-    <!-- SECTION 2 -->
-    <section class="youth-section">
-      <!-- =========================
-  상단 퍼즐 오브제
-  ========================= -->
 
+    <!-- 색션1,2 -->
+    <section class="youth-section">
       <!-- 기존 큰 퍼즐 오브제 1 -->
       <img
         src="images/main_page/Rectangle (1)-copy-1.png"
@@ -152,10 +145,6 @@
         alt=""
         class="puzzle-right1"
       />
-
-      <!-- =========================
-  추가 장식 오브제
-  ========================= -->
 
       <!-- 작은 퍼즐 오브제 2개 -->
       <img
@@ -212,9 +201,7 @@
       <!-- 보라색 동그라미 위 꽃 3개 오브제 -->
       <img src="images/main_page/Group 214.png" alt="" class="deco flowers" />
 
-      <!-- =========================
-  상단 영역
-  ========================= -->
+      <!-- 상단 영역 -->
       <div class="youth-top">
         <!-- 타이틀 -->
         <div class="youth-title">
@@ -228,15 +215,18 @@
         </div>
 
         <!-- 설명 -->
-        <div class="youth-desc" >
+        <div
+          class="youth-desc"
+          data-aos="fade-up"
+          data-aos-duration="1000"
+          data-aos-delay="0"
+        >
           방황하는 청년들을 위해 알아보는<br />
           나에게 꼭 필요한 청년을 위한 지원제도
         </div>
       </div>
 
-      <!-- =========================
-  하단 영역
-  ========================= -->
+      <!-- 하단 영역 -->
       <div class="youth-bottom">
         <!-- 보라 배경 -->
         <div class="youth-bg"></div>
@@ -244,7 +234,12 @@
         <!-- 카드 -->
         <div class="card-wrap">
           <!-- 1 -->
-          <div class="info-card blue has-quote has-circle circle-bl">
+          <div
+            class="info-card blue has-quote has-circle circle-bl"
+            data-aos="flip-left"
+            data-aos-duration="800"
+            data-aos-delay="0"
+          >
             <img src="images/main_page/blue.png" alt="" class="card-quote" />
             <span class="card-circle"></span>
 
@@ -253,7 +248,12 @@
           </div>
 
           <!-- 2 -->
-          <div class="info-card pink has-quote">
+          <div
+            class="info-card pink has-quote"
+            data-aos="flip-right"
+            data-aos-duration="1000"
+            data-aos-delay="0"
+          >
             <img src="images/main_page/pink.png" alt="" class="card-quote" />
 
             <span class="category">청년제도</span>
@@ -264,7 +264,12 @@
           </div>
 
           <!-- 3 -->
-          <div class="info-card blue has-quote has-circle circle-tr">
+          <div
+            class="info-card blue has-quote has-circle circle-tr"
+            data-aos="flip-left"
+            data-aos-duration="1200"
+            data-aos-delay="0"
+          >
             <img src="images/main_page/blue.png" alt="" class="card-quote" />
             <span class="card-circle"></span>
 
@@ -277,7 +282,12 @@
           </div>
 
           <!-- 4 -->
-          <div class="info-card purple has-quote">
+          <div
+            class="info-card purple has-quote"
+            data-aos="flip-right"
+            data-aos-duration="1400"
+            data-aos-delay="0"
+          >
             <img src="images/main_page/pupple.png" alt="" class="card-quote" />
 
             <span class="category">금융패키지</span>
@@ -289,7 +299,12 @@
           </div>
 
           <!-- 5 -->
-          <div class="info-card pink has-quote">
+          <div
+            class="info-card pink has-quote"
+            data-aos="flip-left"
+            data-aos-duration="1600"
+            data-aos-delay="0"
+          >
             <img src="images/main_page/pink.png" alt="" class="card-quote" />
 
             <span class="category">청년제도</span>
@@ -300,7 +315,12 @@
           </div>
 
           <!-- 6 -->
-          <div class="info-card purple has-quote">
+          <div
+            class="info-card purple has-quote"
+            data-aos="flip-right"
+            data-aos-duration="1800"
+            data-aos-delay="0"
+          >
             <img src="images/main_page/pupple.png" alt="" class="card-quote" />
 
             <span class="category">금융패키지</span>
@@ -311,7 +331,12 @@
           </div>
 
           <!-- 7 -->
-          <div class="info-card pink has-quote">
+          <div
+            class="info-card pink has-quote"
+            data-aos="flip-left"
+            data-aos-duration="2000"
+            data-aos-delay="0"
+          >
             <img src="images/main_page/pink.png" alt="" class="card-quote" />
 
             <span class="category">금융패키지</span>
@@ -323,7 +348,12 @@
           </div>
 
           <!-- 8 -->
-          <div class="info-card blue has-quote has-circle circle-tr">
+          <div
+            class="info-card blue has-quote has-circle circle-tr"
+            data-aos="flip-right"
+            data-aos-duration="2200"
+            data-aos-delay="0"
+          >
             <img src="images/main_page/blue.png" alt="" class="card-quote" />
             <span class="card-circle"></span>
 
@@ -337,5 +367,232 @@
         </div>
       </div>
     </section>
+    <!-- 색션 3 + 색션 4 -->
+    <div class="performance-area">
+      <!-- =========================
+  SECTION 3,4 공통 배경 오브제 영역
+  ========================= -->
+      <div class="performance-bg-deco">
+        <!-- 퍼즐 오브제 -->
+        <img
+          src="images/main_page/page34puzzle1.png"
+          alt=""
+          class="performance-puzzle puzzle-a"
+        />
+        <img
+          src="images/main_page/page34puzzle2.png"
+          alt=""
+          class="performance-puzzle puzzle-b"
+        />
+        <img
+          src="images/main_page/page34puzzle2.png"
+          alt=""
+          class="performance-puzzle puzzle-c"
+        />
+        <img
+          src="images/main_page/page34puzzle3.png"
+          alt=""
+          class="performance-puzzle puzzle-d"
+        />
+        <img
+          src="images/main_page/page34puzzle4.png"
+          alt=""
+          class="performance-puzzle puzzle-e"
+        />
+        <img
+          src="images/main_page/page34puzzle4.png"
+          alt=""
+          class="performance-puzzle puzzle-f"
+        />
+
+        <!-- 원 오브제 -->
+        <span class="performance-circle circle-a"></span>
+        <span class="performance-circle circle-b"></span>
+        <span class="performance-circle circle-c"></span>
+        <span class="performance-circle circle-d"></span>
+        <span class="performance-circle circle-e"></span>
+        <span class="performance-circle circle-f"></span>
+      </div>
+
+      <!-- =========================
+  SECTION 3
+  ========================= -->
+      <section class="feature-section">
+        <div class="feature-inner">
+          <h2
+            class="feature-title"
+            data-aos="fade-up"
+            data-aos-duration="1000"
+            data-aos-delay="0"
+          >
+            내게 딱 맞는 혜택부터 자산까지,<br />
+            다있다의 똑똑한 성능 활용법
+          </h2>
+
+          <div class="feature-card-wrap">
+            <!-- 카드 1 -->
+            <div class="feature-card">
+              <div
+                class="feature-img purple"
+                data-aos="fade-up"
+                data-aos-duration="1200"
+                data-aos-delay="0"
+              >
+                <img
+                  src="images/main_page/910e297774af3f37c550bc424fd8b52d-Photoroom 1.png"
+                  alt="청년정책"
+                />
+              </div>
+              <div class="feature-text">
+                <h3>나에게 딱 맞는 청년정책</h3>
+                <p>내게 맞는 청년 정책,<br />고민 없이 한 번에!</p>
+              </div>
+            </div>
+
+            <!-- 카드 2 -->
+            <div class="feature-card">
+              <div
+                class="feature-img pink"
+                data-aos="fade-up"
+                data-aos-duration="1600"
+                data-aos-delay="0"
+              >
+                <img
+                  src="images/main_page/88392255335c8fa21656ce6d55380596-Photoroom 1.png"
+                  alt="금융패키지"
+                />
+              </div>
+              <div class="feature-text">
+                <h3>금융패키지 한눈에 알아보기</h3>
+                <p>흩어진 혜택은 모으고,<br />금융은 한눈에!</p>
+              </div>
+            </div>
+
+            <!-- 카드 3 -->
+            <div class="feature-card">
+              <div
+                class="feature-img blue"
+                data-aos="fade-up"
+                data-aos-duration="2000"
+                data-aos-delay="0"
+              >
+                <img
+                  src="images/main_page/0bec265e75db2e06a9586fcef2a91782-Photoroom 1.png"
+                  alt="자산 성장"
+                />
+              </div>
+              <div class="feature-text">
+                <h3>자산 성장 모니터링</h3>
+                <p>내 소중한 자산,<br />얼마나 잘 모으고 있는지 궁금해?</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- =========================
+  SECTION 4
+  ========================= -->
+      <section class="guide-section">
+        <div class="guide-inner">
+          <h2
+            class="guide-title"
+            data-aos="fade-up"
+            data-aos-duration="1000"
+            data-aos-delay="0"
+          >
+            방황하던 청년을 위한 국가지원제도 가이드라인
+          </h2>
+
+          <div class="guide-swiper swiper">
+            <div class="swiper-wrapper">
+              <!-- slide 1 -->
+              <div class="swiper-slide guide-slide">
+                <div class="guide-card">
+                  <div class="guide-img-box">
+                    <img
+                      src="images/main_page/다운로드 (2).jpg"
+                      alt="금융 상품"
+                    />
+                  </div>
+                  <div class="guide-label">
+                    정부 지원과 고금리 혜택으로 미래 자산을 준비하는 금융 상품
+                  </div>
+                </div>
+              </div>
+
+              <!-- slide 2 -->
+              <div class="swiper-slide guide-slide">
+                <div class="guide-card">
+                  <div class="guide-img-box">
+                    <img
+                      src="images/main_page/다운로드 (1).jpg"
+                      alt="청년월세 특별지원"
+                    />
+                  </div>
+                  <div class="guide-label">
+                    작은 저축으로 목돈을 만들 수 있는 자산형성 지원 제도
+                  </div>
+                </div>
+              </div>
+
+              <!-- slide 3 -->
+              <div class="swiper-slide guide-slide">
+                <div class="guide-card">
+                  <div class="guide-img-box">
+                    <img src="images/main_page/다운로드.jpg" alt="작은 저축" />
+                  </div>
+                  <div class="guide-label">
+                    매달 고정지출 부담을 줄여주는 가장 현실적인 청년 정책
+                  </div>
+                </div>
+              </div>
+
+              <!-- slide 4 -->
+              <div class="swiper-slide guide-slide">
+                <div class="guide-card">
+                  <div class="guide-img-box">
+                    <img
+                      src="images/main_page/다운로드 (2).jpg"
+                      alt="금융 상품"
+                    />
+                  </div>
+                  <div class="guide-label">
+                    정부 지원과 고금리 혜택으로 미래 자산을 준비하는 금융 상품
+                  </div>
+                </div>
+              </div>
+
+              <!-- slide 5 -->
+              <div class="swiper-slide guide-slide">
+                <div class="guide-card">
+                  <div class="guide-img-box">
+                    <img
+                      src="images/main_page/다운로드 (1).jpg"
+                      alt="청년월세 특별지원"
+                    />
+                  </div>
+                  <div class="guide-label">
+                    작은 저축으로 목돈을 만들 수 있는 자산형성 지원 제도
+                  </div>
+                </div>
+              </div>
+
+              <!-- slide 6 -->
+              <div class="swiper-slide guide-slide">
+                <div class="guide-card">
+                  <div class="guide-img-box">
+                    <img src="images/main_page/다운로드.jpg" alt="작은 저축" />
+                  </div>
+                  <div class="guide-label">
+                    매달 고정지출 부담을 줄여주는 가장 현실적인 청년 정책
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
   </body>
 </html>
