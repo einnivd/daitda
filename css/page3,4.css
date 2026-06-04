@@ -1,0 +1,656 @@
+/* =========================
+SECTION 3 + SECTION 4
+공통 검은 원 배경 영역
+========================= */
+.performance-area {
+  position: relative;
+  width: 100%;
+  background: #fff;
+  overflow: hidden;
+  margin-top: -220px;
+}
+
+/* 3번 + 4번 페이지를 감싸는 하나의 검은 원 */
+.performance-area::before {
+  content: "";
+  position: absolute;
+  top: 50px;
+  left: 50%;
+  width: 3800px;
+  height: 2150px;
+  transform: translateX(-50%);
+  border-radius: 50%;
+  background: #000;
+  z-index: 0;
+}
+
+/* =========================
+SECTION 3 + 4 공통 퍼즐 배경 오브제
+========================= */
+.performance-bg-deco {
+  position: absolute;
+  left: 50%;
+  top: 50px;
+  width: 1920px;
+  height: 2150px;
+  transform: translateX(-50%);
+  pointer-events: none;
+  z-index: 1;
+  overflow: hidden;
+}
+
+/* 퍼즐 공통 */
+.performance-puzzle {
+  position: absolute;
+  display: block;
+  user-select: none;
+  pointer-events: none;
+  filter: brightness(0.75);
+}
+
+/* SECTION 3 쪽 퍼즐 */
+.performance-puzzle.puzzle-a {
+  left: -45px;
+  top: 320px;
+  width: 150px;
+  opacity: 0.55;
+  transform: rotate(-18deg);
+}
+
+.performance-puzzle.puzzle-b {
+  right: -60px;
+  top: 410px;
+  width: 190px;
+  opacity: 0.5;
+  transform: rotate(22deg);
+}
+
+.performance-puzzle.puzzle-c {
+  left: 144px;
+  top: 529px;
+  width: 102px;
+  opacity: 0.35;
+  transform: rotate(94deg);
+}
+
+/* SECTION 4 쪽 퍼즐 */
+.performance-puzzle.puzzle-d {
+  right: 115px;
+  top: 865px;
+  width: 156px;
+  opacity: 0.45;
+  transform: rotate(17deg);
+}
+
+.performance-puzzle.puzzle-e {
+  left: 141px;
+  top: 900px;
+  width: 214px;
+  opacity: 0.4;
+  transform: rotate(-32deg);
+}
+
+.performance-puzzle.puzzle-f {
+  right: 200px;
+  top: 300px;
+  width: 108px;
+  opacity: 0.35;
+  transform: rotate(-18deg);
+}
+
+/* 원 오브제 공통 */
+.performance-circle {
+  position: absolute;
+  display: block;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.22);
+  pointer-events: none;
+}
+
+/* SECTION 3 쪽 원 */
+.performance-circle.circle-a {
+  left: -35px;
+  top: 780px;
+  width: 145px;
+  height: 145px;
+}
+
+.performance-circle.circle-b {
+  left: 245px;
+  top: 725px;
+  width: 42px;
+  height: 42px;
+  opacity: 0.7;
+}
+
+.performance-circle.circle-c {
+  right: 152px;
+  top: 728px;
+  width: 100px;
+  height: 100px;
+  opacity: 0.75;
+}
+
+/* SECTION 4 쪽 원 */
+.performance-circle.circle-d {
+  right: 360px;
+  top: 1110px;
+  width: 42px;
+  height: 42px;
+  opacity: 0.75;
+}
+
+.performance-circle.circle-e {
+  left: 320px;
+  top: 1857px;
+  width: 144px;
+  height: 144px;
+  opacity: 0.65;
+}
+
+.performance-circle.circle-f {
+  right: 120px;
+  top: 1640px;
+  width: 170px;
+  height: 170px;
+  opacity: 0.55;
+}
+
+/* =========================
+SECTION 3
+성능 활용법
+========================= */
+.feature-section {
+  position: relative;
+  width: 100%;
+  min-height: 1080px;
+  background: transparent;
+  overflow: visible;
+  padding-top: 90px;
+  z-index: 2;
+}
+
+.feature-inner {
+  position: relative;
+  z-index: 3;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 40px;
+}
+
+.feature-title {
+  padding-top: 120px;
+  text-align: center;
+  color: #fff;
+  font-family: "Black Han Sans", sans-serif;
+  font-weight: normal;
+  font-size: 46px;
+  line-height: 1.28;
+  letter-spacing: 0.04em;
+  text-shadow: none;
+}
+
+.feature-card-wrap {
+  margin-top: 80px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 120px;
+}
+
+.feature-card {
+  width: 320px;
+}
+
+/* 카드 공통 */
+.feature-img {
+  width: 320px;
+  border-radius: 22px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+/* =========================
+SECTION 3 카드 아이콘 호버 효과
+카드에 마우스 올리면 안쪽 아이콘만 스무스하게 확대
+========================= */
+.feature-img img {
+  display: block;
+  transition:
+    transform 0.35s ease,
+    filter 0.35s ease;
+  will-change: transform;
+}
+
+.feature-card:hover .feature-img img {
+  transform: scale(1.12);
+  filter: drop-shadow(0 14px 24px rgba(0, 0, 0, 0.18));
+}
+
+/* 카드별 개별 높이 조절 */
+.feature-card:nth-child(1) .feature-img {
+  height: 320px;
+}
+
+.feature-card:nth-child(2) .feature-img {
+  height: 395px;
+}
+
+.feature-card:nth-child(3) .feature-img {
+  height: 485px;
+}
+
+/* 카드별 이미지 크기 */
+.feature-card:nth-child(1) .feature-img img {
+  width: 170px;
+}
+
+.feature-card:nth-child(2) .feature-img img {
+  width: 180px;
+}
+
+.feature-card:nth-child(3) .feature-img img {
+  width: 190px;
+}
+
+/* 카드별 그라데이션 */
+.feature-img.purple {
+  background: linear-gradient(180deg, #a274ff 0%, #ffffff 100%);
+}
+
+.feature-img.pink {
+  background: linear-gradient(180deg, #f4a0f6 0%, #ffffff 100%);
+}
+
+.feature-img.blue {
+  background: linear-gradient(180deg, #b8eaff 0%, #ffffff 100%);
+}
+
+.feature-text {
+  margin-top: 28px;
+  color: #fff;
+}
+
+.feature-text h3 {
+  font-family: "Black Han Sans", sans-serif;
+  font-weight: normal;
+  font-size: 25px;
+  line-height: 1.25;
+  margin-bottom: 16px;
+}
+
+.feature-text p {
+  font-family: "Noto Sans KR", sans-serif;
+  font-size: 18px;
+  line-height: 1.45;
+}
+
+/* 카드별 텍스트 위치 */
+.feature-card:nth-child(1) .feature-text {
+  margin-top: 28px;
+}
+
+.feature-card:nth-child(2) .feature-text {
+  margin-top: 28px;
+}
+
+.feature-card:nth-child(3) .feature-text {
+  margin-top: 34px;
+}
+
+/* =========================
+SECTION 4
+스와이퍼 가이드라인
+========================= */
+.guide-section {
+  position: relative;
+  width: 100%;
+  min-height: 1100px;
+  background: transparent;
+  overflow: visible;
+  padding-top: 10px;
+  z-index: 2;
+}
+
+.guide-inner {
+  position: relative;
+  z-index: 3;
+  max-width: 1600px;
+  margin: 0 auto;
+  padding: 0 40px;
+}
+
+.guide-title {
+  padding-top: 130px;
+  text-align: center;
+  color: #fff;
+  font-family: "Black Han Sans", sans-serif;
+  font-weight: normal;
+  font-size: 48px;
+  line-height: 1.28;
+  letter-spacing: 0.03em;
+}
+
+/* =========================
+SECTION 4 SWIPER
+3D Coverflow 최적화 버전
+========================= */
+.guide-swiper {
+  position: relative !important;
+  width: 100vw !important;
+  margin-left: calc(50% - 50vw) !important;
+  margin-top: 85px !important;
+  overflow: visible !important;
+  padding-top: 30px !important;
+  padding-bottom: 60px !important;
+  z-index: 4;
+}
+
+.guide-swiper .swiper-wrapper {
+  align-items: center !important;
+}
+
+.guide-swiper .guide-slide {
+  width: 520px !important;
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  background: transparent !important;
+  transition: opacity 0.4s ease !important;
+}
+
+.guide-swiper .guide-slide:not(.swiper-slide-active) {
+  opacity: 0.55 !important;
+}
+
+.guide-swiper .guide-card {
+  position: relative !important;
+  width: 100% !important;
+  overflow: visible !important;
+}
+
+.guide-swiper .guide-img-box {
+  width: 100% !important;
+  height: 340px !important;
+  border-radius: 20px !important;
+  overflow: hidden !important;
+  background: #fff !important;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3) !important;
+  transition: box-shadow 0.4s ease !important;
+}
+
+.guide-swiper .guide-slide.swiper-slide-active .guide-img-box {
+  box-shadow: 0 25px 55px rgba(0, 0, 0, 0.65) !important;
+}
+
+.guide-swiper .guide-img-box img {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+  display: block !important;
+}
+
+.guide-swiper .guide-label {
+  position: absolute !important;
+  left: 50% !important;
+  bottom: -45px !important;
+  transform: translateX(-50%) !important;
+  width: 100% !important;
+  min-width: 520px !important;
+  max-width: 520px !important;
+  padding: 18px 34px !important;
+  border-radius: 14px !important;
+  background: #565656 !important;
+  color: #fff !important;
+  text-align: center !important;
+  font-family: "Black Han Sans", sans-serif !important;
+  font-weight: normal;
+  font-size: 20px;
+  line-height: 1.25 !important;
+  white-space: nowrap !important;
+  transition: all 0.4s ease !important;
+  z-index: 20 !important;
+}
+
+.guide-swiper .guide-slide:not(.swiper-slide-active) .guide-label {
+  opacity: 0 !important;
+  visibility: hidden !important;
+  transition: all 0.4s ease !important;
+}
+
+/* =========================
+반응형 레이아웃 조절
+========================= */
+@media (max-width: 1400px) {
+  .performance-area::before {
+    width: 3000px;
+    height: 2150px;
+  }
+
+  .performance-bg-deco {
+    width: 1400px;
+  }
+
+  .performance-puzzle.puzzle-a {
+    left: -80px;
+  }
+
+  .performance-puzzle.puzzle-b {
+    right: -80px;
+  }
+
+  .performance-puzzle.puzzle-d {
+    right: 20px;
+  }
+
+  .feature-card-wrap {
+    gap: 70px;
+  }
+
+  .feature-card,
+  .feature-img {
+    width: 290px;
+  }
+
+  .feature-card:nth-child(1) .feature-img {
+    height: 290px;
+  }
+
+  .feature-card:nth-child(2) .feature-img {
+    height: 350px;
+  }
+
+  .feature-card:nth-child(3) .feature-img {
+    height: 410px;
+  }
+}
+
+@media (max-width: 1100px) {
+  .performance-area::before {
+    top: 60px;
+    width: 2300px;
+    height: 3000px;
+  }
+
+  .performance-bg-deco {
+    top: 60px;
+    width: 1100px;
+    height: 3000px;
+  }
+
+  .performance-puzzle,
+  .performance-circle {
+    opacity: 0.25;
+  }
+
+  .performance-puzzle.puzzle-a {
+    width: 120px;
+    left: -50px;
+    top: 480px;
+  }
+
+  .performance-puzzle.puzzle-b {
+    width: 140px;
+    right: -60px;
+    top: 500px;
+  }
+
+  .performance-puzzle.puzzle-c {
+    display: none;
+  }
+
+  .performance-puzzle.puzzle-d {
+    width: 180px;
+    right: -40px;
+    top: 1220px;
+  }
+
+  .performance-puzzle.puzzle-e {
+    width: 90px;
+    left: 50px;
+    top: 1380px;
+  }
+
+  .performance-puzzle.puzzle-f {
+    display: none;
+  }
+
+  .feature-section {
+    min-height: auto;
+    padding-bottom: 150px;
+  }
+
+  .feature-title {
+    font-size: 38px;
+  }
+
+  .feature-card-wrap {
+    flex-direction: column;
+    align-items: center;
+    gap: 70px;
+  }
+
+  .feature-card {
+    width: 420px;
+  }
+
+  .feature-img {
+    width: 420px;
+  }
+
+  .feature-card:nth-child(1) .feature-img,
+  .feature-card:nth-child(2) .feature-img,
+  .feature-card:nth-child(3) .feature-img {
+    height: 300px;
+  }
+
+  .feature-text {
+    text-align: center;
+  }
+
+  .guide-section {
+    min-height: 980px;
+  }
+
+  .guide-title {
+    padding-top: 120px;
+    font-size: 38px;
+  }
+
+  .guide-swiper .guide-slide {
+    width: 420px !important;
+  }
+
+  .guide-swiper .guide-img-box {
+    height: 280px !important;
+  }
+
+  .guide-swiper .guide-label {
+    min-width: 420px !important;
+    max-width: 420px !important;
+    font-size: 17px !important;
+    bottom: -40px !important;
+  }
+
+  .guide-swiper .guide-slide:not(.swiper-slide-active) .guide-label {
+    min-width: 140px !important;
+    max-width: 140px !important;
+    font-size: 13px !important;
+  }
+}
+
+@media (max-width: 700px) {
+  .performance-area::before {
+    top: 60px;
+    width: 1700px;
+    height: 2550px;
+  }
+
+  .performance-bg-deco {
+    display: none;
+  }
+
+  .feature-title {
+    padding-top: 90px;
+    font-size: 30px;
+  }
+
+  .feature-card {
+    width: 100%;
+    max-width: 330px;
+  }
+
+  .feature-img {
+    width: 100%;
+  }
+
+  .feature-card:nth-child(1) .feature-img,
+  .feature-card:nth-child(2) .feature-img,
+  .feature-card:nth-child(3) .feature-img {
+    height: 260px;
+  }
+
+  .feature-text h3 {
+    font-size: 22px;
+  }
+
+  .feature-text p {
+    font-size: 16px;
+  }
+
+  .guide-section {
+    min-height: 850px;
+  }
+
+  .guide-title {
+    padding-top: 100px;
+    font-size: 29px;
+  }
+
+  .guide-swiper {
+    margin-top: 80px;
+  }
+
+  .guide-swiper .guide-slide {
+    width: 290px !important;
+  }
+
+  .guide-swiper .guide-img-box {
+    height: 220px !important;
+  }
+
+  .guide-swiper .guide-label {
+    min-width: 280px !important;
+    max-width: 280px !important;
+    font-size: 14px !important;
+    padding: 12px 15px !important;
+    bottom: -35px !important;
+    white-space: normal !important;
+  }
+
+  .guide-swiper .guide-slide:not(.swiper-slide-active) .guide-label {
+    display: none !important;
+  }
+}

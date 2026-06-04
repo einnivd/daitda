@@ -24,8 +24,13 @@ SECTION 02
 
 /* =========================
 공통 장식 오브제
+화면 커져도 중앙 기준으로 고정
 ========================= */
-.youth-section .deco {
+.youth-section .deco,
+.puzzle-left1,
+.puzzle-right1,
+.puzzle-small-left,
+.puzzle-small-right {
   position: absolute;
   display: block;
   pointer-events: none;
@@ -45,100 +50,118 @@ SECTION 02
 
 /* =========================
 기존 큰 퍼즐 오브제
+중앙 기준 고정형
 ========================= */
 .puzzle-left1 {
-  position: absolute;
   top: 205px;
-  left: 336px;
+  left: 50%;
   width: 160px;
   z-index: 3;
+  --x: -624px;
+  --r: 0deg;
   animation: floatBigLeft 4s ease-in-out infinite;
 }
 
 .puzzle-right1 {
-  position: absolute;
   top: 190px;
-  right: 365px;
+  left: 50%;
   width: 169px;
   z-index: 3;
+  --x: 405px;
+  --r: 0deg;
   animation: floatBigRight 5s ease-in-out infinite;
 }
 
 /* =========================
 추가 작은 퍼즐 오브제
+중앙 기준 고정형
 ========================= */
 .puzzle-small-left {
   top: 400px;
-  left: 500px;
+  left: 50%;
   width: 130px;
   z-index: 4;
+  --x: -460px;
+  --r: -25deg;
   animation: floatPuzzleLeft 4.5s ease-in-out infinite;
 }
 
 .puzzle-small-right {
   top: 386px;
-  right: 500px;
+  left: 50%;
   width: 145px;
   z-index: 4;
+  --x: 355px;
+  --r: 18deg;
   animation: floatPuzzleRight 5s ease-in-out infinite;
 }
 
 /* =========================
 양쪽 끝 구름/꽃잎 오브제
+중앙 기준 고정형
 ========================= */
 .cloud-left {
   top: 150px;
-  left: -2px;
+  left: 50%;
   width: 131px;
   z-index: 3;
+  transform: translateX(-962px);
 }
 
 .cloud-right {
   top: 357px;
-  right: -6px;
+  left: 50%;
   width: 135px;
   z-index: 3;
+  transform: translateX(831px);
 }
 
 /* =========================
 흰색 반짝이 오브제
+중앙 기준 고정형
 ========================= */
 .sparkle-left {
   top: 414px;
-  left: 201px;
+  left: 50%;
   width: 55px;
   z-index: 4;
+  transform: translateX(-759px);
 }
 
 .sparkle-right {
   top: 155px;
-  right: 210px;
+  left: 50%;
   width: 65px;
   z-index: 4;
+  transform: translateX(685px);
 }
 
 /* =========================
 보라색 배경 위 풀 / 꽃 오브제
+중앙 기준 고정형
 ========================= */
 .grass-left {
   top: 690px;
-  left: 235px;
+  left: 50%;
   width: 280px;
   z-index: 12;
+  transform: translateX(-725px);
 }
 
 .grass-right {
   top: 631px;
-  left: 449px;
+  left: 50%;
   width: 170px;
   z-index: 12;
+  transform: translateX(-511px);
 }
 
 .flowers {
   top: 670px;
-  right: 312px;
+  left: 50%;
   width: 250px;
   z-index: 12;
+  transform: translateX(398px);
 }
 
 /* =========================
@@ -261,12 +284,24 @@ SECTION 02
   overflow: hidden;
   isolation: isolate;
   backdrop-filter: blur(10px);
+
+  /* 호버 스무스 효과 추가 */
+  transition:
+    transform 0.35s ease,
+    box-shadow 0.35s ease;
+  will-change: transform;
+}
+
+/* =========================
+카드 호버 효과
+========================= */
+.info-card:hover {
+  transform: scale(1.045);
+  box-shadow: 0 24px 45px rgba(0, 0, 0, 0.22);
 }
 
 /* =========================
 파란 카드 원형 장식
-- 번짐 없이 딱 원 모양만 보이게
-- 1, 3, 8번 카드 각각 위치 개별 지정
 ========================= */
 .info-card.blue:nth-child(1)::after,
 .info-card.blue:nth-child(3)::after,
@@ -281,13 +316,11 @@ SECTION 02
   pointer-events: none;
 }
 
-/* 1번 카드: 왼쪽 아래 */
 .info-card.blue:nth-child(1)::after {
   left: 125px;
   bottom: -60px;
 }
 
-/* 3번 카드: 오른쪽 위 */
 .info-card.blue:nth-child(3)::after {
   width: 180px;
   height: 180px;
@@ -295,7 +328,6 @@ SECTION 02
   top: 60px;
 }
 
-/* 8번 카드: 오른쪽 위 */
 .info-card.blue:nth-child(8)::after {
   right: -65px;
   top: 135px;
@@ -303,7 +335,6 @@ SECTION 02
 
 /* =========================
 따옴표 이미지
-HTML에 img.card-quote 있어야 적용
 ========================= */
 .card-quote {
   position: absolute;
@@ -316,7 +347,6 @@ HTML에 img.card-quote 있어야 적용
   user-select: none;
 }
 
-/* 큰 카드 따옴표 조금 크게 */
 .info-card:nth-child(1) .card-quote,
 .info-card:nth-child(5) .card-quote {
   width: 52px;
@@ -371,25 +401,22 @@ HTML에 img.card-quote 있어야 적용
 ========================= */
 .info-card:nth-child(1) {
   height: 475px;
-  margin-top: 40px;
-  transform: translateY(60px);
+  margin-top: 100px;
 }
 
 .info-card:nth-child(2) {
   height: 285px;
-  margin-top: 80px;
+  margin-top: 70px;
 }
 
 .info-card:nth-child(3) {
   height: 285px;
-  margin-top: 0;
-  transform: translateY(50px);
+  margin-top: 115px;
 }
 
 .info-card:nth-child(4) {
   height: 285px;
-  margin-top: 60px;
-  transform: translateY(20px);
+  margin-top: 85px;
 }
 
 .info-card:nth-child(5) {
@@ -399,20 +426,17 @@ HTML에 img.card-quote 있어야 적용
 
 .info-card:nth-child(6) {
   height: 285px;
-  margin-top: -180px;
-  transform: translateY(30px);
+  margin-top: -215px;
 }
 
 .info-card:nth-child(7) {
   height: 285px;
-  margin-top: -160px;
-  transform: translateY(-20px);
+  margin-top: -170px;
 }
 
 .info-card:nth-child(8) {
   height: 285px;
-  margin-top: -170px;
-  transform: translateY(20px);
+  margin-top: -200px;
 }
 
 /* =========================
@@ -420,7 +444,6 @@ HTML에 img.card-quote 있어야 적용
 1720px 이하부터 퍼즐 4개만 유지
 ========================= */
 @media (max-width: 1720px) {
-  /* 퍼즐 4개는 유지 */
   .youth-section .puzzle-left1,
   .youth-section .puzzle-right1,
   .youth-section .puzzle-small-left,
@@ -430,7 +453,6 @@ HTML에 img.card-quote 있어야 적용
     opacity: 1;
   }
 
-  /* 1720px 이하부터 퍼즐 제외 모든 장식 오브제 숨김 */
   .youth-section .cloud-left,
   .youth-section .cloud-right,
   .youth-section .sparkle-left,
@@ -452,16 +474,13 @@ HTML에 img.card-quote 있어야 적용
   .card-wrap {
     max-width: 1320px;
     padding-top: 670px;
-
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 28px;
-
     justify-content: center;
     align-items: stretch;
   }
 
-  /* PC 계단형 카드 배치 초기화 */
   .info-card,
   .info-card:nth-child(1),
   .info-card:nth-child(2),
@@ -474,7 +493,6 @@ HTML에 img.card-quote 있어야 적용
     width: 100%;
     aspect-ratio: 1 / 1;
     height: auto !important;
-
     margin-top: 0 !important;
     transform: none !important;
   }
@@ -543,16 +561,13 @@ HTML에 img.card-quote 있어야 적용
   .card-wrap {
     max-width: 780px;
     padding-top: 670px;
-
     display: grid;
     grid-template-columns: repeat(3, 220px);
     gap: 22px;
-
     justify-content: center;
     align-items: stretch;
   }
 
-  /* 기존 계단형 카드값 전부 초기화 */
   .info-card,
   .info-card:nth-child(1),
   .info-card:nth-child(2),
@@ -565,7 +580,6 @@ HTML에 img.card-quote 있어야 적용
     width: 220px;
     height: 220px !important;
     aspect-ratio: 1 / 1;
-
     margin-top: 0 !important;
     transform: none !important;
   }
@@ -633,12 +647,10 @@ HTML에 img.card-quote 있어야 적용
     padding-bottom: 180px;
   }
 
-  /* 검정 상단 배경을 더 길게 유지 */
   .youth-section::before {
     height: 1060px;
   }
 
-  /* 태블릿에서는 퍼즐 4개만 유지 */
   .youth-section .puzzle-left1,
   .youth-section .puzzle-right1,
   .youth-section .puzzle-small-left,
@@ -648,44 +660,30 @@ HTML에 img.card-quote 있어야 적용
     opacity: 0.85;
   }
 
-  /* 퍼즐 제외 장식 오브제 숨김 */
-  .youth-section .cloud-left,
-  .youth-section .cloud-right,
-  .youth-section .sparkle-left,
-  .youth-section .sparkle-right,
-  .youth-section .grass-left,
-  .youth-section .grass-right,
-  .youth-section .flowers {
-    display: none !important;
-    visibility: hidden !important;
-    opacity: 0 !important;
-  }
-
   .puzzle-left1 {
     top: 220px;
-    left: 40px;
     width: 120px;
+    --x: -510px;
   }
 
   .puzzle-right1 {
     top: 220px;
-    right: 40px;
     width: 120px;
+    --x: 390px;
   }
 
   .puzzle-small-left {
-    left: 75px;
     top: 380px;
     width: 70px;
+    --x: -475px;
   }
 
   .puzzle-small-right {
-    right: 75px;
     top: 370px;
     width: 75px;
+    --x: 400px;
   }
 
-  /* 상단 영역 높이 확보 */
   .youth-top {
     padding-top: 120px;
     min-height: 1040px;
@@ -728,17 +726,14 @@ HTML에 img.card-quote 있어야 적용
   .card-wrap {
     top: -160px;
     max-width: 760px;
-    padding: 0px 24px 0;
-
+    padding: 0 24px 0;
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 24px;
-
     align-items: stretch;
     justify-content: center;
   }
 
-  /* PC용 계단형 카드값 전부 초기화 */
   .info-card,
   .info-card:nth-child(1),
   .info-card:nth-child(2),
@@ -804,7 +799,7 @@ HTML에 img.card-quote 있어야 적용
 
 /* =========================
 작은 태블릿
-카드 2열 유지 + 퍼즐 축소 + 간격 유지
+카드 2열 유지 + 퍼즐 축소
 ========================= */
 @media (max-width: 850px) {
   .youth-section::before {
@@ -823,27 +818,27 @@ HTML에 img.card-quote 있어야 적용
   }
 
   .puzzle-left1 {
-    left: 20px;
     top: 230px;
     width: 85px;
+    --x: -405px;
   }
 
   .puzzle-right1 {
-    right: 20px;
     top: 230px;
     width: 85px;
+    --x: 320px;
   }
 
   .puzzle-small-left {
-    left: 45px;
     top: 350px;
     width: 48px;
+    --x: -380px;
   }
 
   .puzzle-small-right {
-    right: 45px;
     top: 345px;
     width: 52px;
+    --x: 340px;
   }
 
   .youth-title p {
@@ -915,27 +910,27 @@ HTML에 img.card-quote 있어야 적용
   }
 
   .puzzle-left1 {
-    left: 10px;
     top: 230px;
     width: 55px;
+    --x: -350px;
   }
 
   .puzzle-right1 {
-    right: 10px;
     top: 230px;
     width: 55px;
+    --x: 295px;
   }
 
   .puzzle-small-left {
-    left: 28px;
     top: 330px;
     width: 32px;
+    --x: -332px;
   }
 
   .puzzle-small-right {
-    right: 28px;
     top: 330px;
     width: 34px;
+    --x: 298px;
   }
 }
 
@@ -954,7 +949,6 @@ HTML에 img.card-quote 있어야 적용
     height: 780px;
   }
 
-  /* 모바일에서는 메인 캐릭터 제외 모든 장식 오브제 숨김 */
   .youth-section .puzzle-left1,
   .youth-section .puzzle-right1,
   .youth-section .puzzle-small-left,
@@ -1011,13 +1005,12 @@ HTML에 img.card-quote 있어야 적용
   .youth-bg {
     top: -500px;
     width: 1500px;
-    height: 1250px;
+    height: 2100px;
   }
 
   .card-wrap {
     max-width: 100%;
     padding: 270px 20px 0;
-
     display: grid;
     grid-template-columns: 1fr;
     gap: 18px;
@@ -1123,5 +1116,77 @@ HTML에 img.card-quote 있어야 적용
 
   .info-card p {
     font-size: 14px;
+  }
+}
+
+/* =========================
+반응형 transform 초기화보다 hover가 우선 적용되도록 보정
+========================= */
+.info-card:hover {
+  transform: scale(1.045) !important;
+  box-shadow: 0 24px 45px rgba(0, 0, 0, 0.22);
+}
+
+/* =========================
+큰 퍼즐 애니메이션
+중앙 고정값 유지하면서 둥둥 움직이게 수정
+========================= */
+@keyframes floatBigLeft {
+  0% {
+    transform: translate(var(--x), 0px) rotate(0deg);
+  }
+
+  50% {
+    transform: translate(var(--x), -20px) rotate(-4deg);
+  }
+
+  100% {
+    transform: translate(var(--x), 0px) rotate(0deg);
+  }
+}
+
+@keyframes floatBigRight {
+  0% {
+    transform: translate(var(--x), 0px) rotate(0deg);
+  }
+
+  50% {
+    transform: translate(var(--x), 18px) rotate(5deg);
+  }
+
+  100% {
+    transform: translate(var(--x), 0px) rotate(0deg);
+  }
+}
+
+/* =========================
+작은 퍼즐 애니메이션
+중앙 고정값 유지하면서 둥둥 움직이게 수정
+========================= */
+@keyframes floatPuzzleLeft {
+  0% {
+    transform: translate(var(--x), 0px) rotate(-25deg);
+  }
+
+  50% {
+    transform: translate(var(--x), -20px) rotate(-29deg);
+  }
+
+  100% {
+    transform: translate(var(--x), 0px) rotate(-25deg);
+  }
+}
+
+@keyframes floatPuzzleRight {
+  0% {
+    transform: translate(var(--x), 0px) rotate(18deg);
+  }
+
+  50% {
+    transform: translate(var(--x), 18px) rotate(23deg);
+  }
+
+  100% {
+    transform: translate(var(--x), 0px) rotate(18deg);
   }
 }
