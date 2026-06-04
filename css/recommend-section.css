@@ -1,0 +1,122 @@
+/* 추천 섹션 전체 배경 */
+.recommend-section {
+  width: 100%;
+  background-color: #000; /* 검은색 배경 */
+  padding: 80px 0;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.section-title {
+  color: #fff;
+  margin-bottom: 40px;
+  font-size: 1.2rem;
+  font-weight: 500;
+}
+
+/* 화살표와 스와이퍼를 감싸는 영역 */
+.swiper-container-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  max-width: 1500px; /* 화살표까지 포함한 전체 영역 */
+  margin: 0 auto;
+}
+
+.recommend-swiper {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  /* overflow: visible !important;  */
+}
+.swiper-wrapper{
+  display: flex;
+  justify-content: flex-start;
+  gap: 0px;
+}
+.recommend-swiper .swiper-slide {
+  /* width: auto;  */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+/* 카드 디자인 */
+.inner-card {
+  border-radius: 30px;
+  padding: 40px 20px;
+  width: 100%;
+  min-width: 250px;
+  height: 250px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-sizing: border-box;
+}
+.recommend-img{
+  width: 120px;
+  height: 120px;
+}
+.inner-card img {
+  width: 100%;
+  display: block;
+  margin-bottom: 20px;
+  object-fit: contain;
+}
+
+.inner-card h3 {
+  font-size: 20px;
+  font-weight: 800;
+  margin-bottom: 10px;
+  color: #000;
+}
+
+.inner-card p {
+  font-size: 14px;
+  color: #444;
+}
+
+.inner-card p span {
+  color: var(--main);
+  font-weight: bold;
+}
+
+/* 카드 배경색 (스타일 가이드 변수 활용) */
+.purple {
+  background-color: var(--sub-1);
+}
+.pink {
+  background-color: var(--sub-2);
+}
+.blue {
+  background-color: var(--sub-3);
+}
+
+/* 화살표 커스텀 디자인 */
+.custom-arrow {
+  color: #fff !important; /* 화살표 흰색 */
+  position: absolute !important;
+   z-index: 999 !important;
+}
+
+.custom-arrow::after {
+  font-size: 24px !important; /* 화살표 크기 */
+  font-weight: bold;
+  position: absolute !important;
+  top: 50% !important;
+  transform: translateY(-50%);
+  z-index: 10;
+  color: #fff !important;
+}
+
+/* 화살표 위치 세밀 조정 */
+.swiper-button-prev {
+  left: 20px !important;
+}
+.swiper-button-next {
+  right: 20px !important;
+}

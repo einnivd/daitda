@@ -9,6 +9,8 @@
     <link rel="stylesheet" href="css/header.css" />
     <link rel="stylesheet" href="css/footer.css" />
     <link rel="stylesheet" href="css/puzzle-game.css" />
+    <link rel="stylesheet" href="css/card-section.css" />
+    <link rel="stylesheet" href="css/recommend-section.css" />
 
     <!-- 2. jQuery -->
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
@@ -28,6 +30,7 @@
       href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
     />
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="js/sub/sub.js"></script>
 
     <!-- 7. seo 엔진 최적화 -->
     <!-- 웹페이지의 설명을 정의 -->
@@ -134,16 +137,16 @@
       </section>
       <div class="inner">
         <!-- 배경 퍼즐 조각 -->
-         <div class="background-piece">
-          <img src="images/sub_page/puzzle-1.png" alt="퍼즐1">
-          <img src="images/sub_page/puzzle-2.png" alt="퍼즐2">
-          <img src="images/sub_page/puzzle-3.png" alt="퍼즐3">
-          <img src="images/sub_page/puzzle-4.png" alt="퍼즐4">
-          <img src="images/sub_page/puzzle-5.png" alt="퍼즐5">
-          <img src="images/sub_page/puzzle-6.png" alt="퍼즐6">
-         </div>
+        <div class="background-piece">
+          <img src="images/sub_page/puzzle-1.png" alt="퍼즐1" />
+          <img src="images/sub_page/puzzle-2.png" alt="퍼즐2" />
+          <img src="images/sub_page/puzzle-3.png" alt="퍼즐3" />
+          <img src="images/sub_page/puzzle-4.png" alt="퍼즐4" />
+          <img src="images/sub_page/puzzle-5.png" alt="퍼즐5" />
+          <img src="images/sub_page/puzzle-6.png" alt="퍼즐6" />
+        </div>
         <!-- 퍼즐 게임 섹션 -->
-        <section class="puzzle-game">
+        <section class="puzzle-section">
           <!-- 상단 카피 -->
           <div class="hero">
             <h1>흩어진 나의 조각들이 모여 기회로,<br />지금 맞춰지는 중</h1>
@@ -185,7 +188,7 @@
               <img src="images/sub_page/puzzle-purple.png" alt="조각9" />
             </div>
             <!-- 퍼즐 조각 카테고리 -->
-             <div class="piece-category">
+            <div class="piece-category">
               <p>취업지원</p>
               <p>진로</p>
               <p>청년금융</p>
@@ -195,7 +198,7 @@
               <p>의료/건강</p>
               <p>복지</p>
               <p>문화/예술</p>
-             </div>
+            </div>
             <!-- 외곽선 -->
             <img
               src="images/sub_page/stroke.png"
@@ -214,25 +217,245 @@
             <p>퍼즐 완성! 결과 보기</p>
           </div>
         </section>
+        <!-- 맞춤형 혜택 개수 섹션 -->
+        <section class="count-section">
+          <p>퍼즐로 완성된 나의 맞춤 혜택 <span>8개</span></p>
+        </section>
         <!-- 맞춤형 카드 섹션 -->
-        <section class="card">
-          <div class="card-1">
+        <section class="card-section">
+          <div class="card-1" id="card">
+            <!-- 카드 상단 -->
             <div class="top">
-              <p>취업지원</p>
-              <p>D-10</p>
+              <p class="card-category">취업지원</p>
+              <p class="d-day">D-10</p>
             </div>
+            <!-- 카드 중앙 -->
             <div class="middle">
-              <img src="images/sub_page/image-1.png" alt="서류가방">
-              <div class="like"></div>
+              <img src="images/sub_page/image-1.png" alt="서류가방" />
+              <div class="like"><i class="fa-regular fa-star"></i></div>
             </div>
+            <!-- 카드 하단 -->
             <div class="bottom">
               <div class="title">청년인턴사업</div>
-              <div class="hashtag">
-                <div>#서울거주</div>
-                <div>#미취업자</div>
-                <div>#연령제한없음</div>
+              <div class="hashtag-group">
+                <div class="tag">#서울거주</div>
+                <div class="tag">#미취업자</div>
+                <div class="tag">#연령제한없음</div>
               </div>
             </div>
+          </div>
+          <div class="card-2" id="card">
+            <!-- 카드 상단 -->
+            <div class="top">
+              <p class="card-category">주거/생활</p>
+              <p class="d-day">D-15</p>
+            </div>
+            <!-- 카드 중앙 -->
+            <div class="middle">
+              <img src="images/sub_page/image-2.png" alt="집" />
+              <div class="like"><i class="fa-regular fa-star"></i></div>
+            </div>
+            <!-- 카드 하단 -->
+            <div class="bottom">
+              <div class="title">2026 청년월세지원사업</div>
+              <div class="hashtag-group">
+                <div class="tag">#대구거주</div>
+                <div class="tag"># 만 19~34세</div>
+                <div class="tag">#연소득 3천 이하</div>
+              </div>
+            </div>
+          </div>
+          <div class="card-3" id="card">
+            <!-- 카드 상단 -->
+            <div class="top">
+              <p class="card-category">교육</p>
+              <p class="d-day">D-30</p>
+            </div>
+            <!-- 카드 중앙 -->
+            <div class="middle">
+              <img src="images/sub_page/image-3.png" alt="책" />
+              <div class="like"><i class="fa-regular fa-star"></i></div>
+            </div>
+            <!-- 카드 하단 -->
+            <div class="bottom">
+              <div class="title">AIㆍ디지털 집중과정 지원</div>
+              <div class="hashtag-group">
+                <div class="tag">#전국거주</div>
+                <div class="tag">#만 29세 이상</div>
+                <div class="tag"># 재직자,미취업자</div>
+              </div>
+            </div>
+          </div>
+          <div class="card-4" id="card">
+            <!-- 카드 상단 -->
+            <div class="top">
+              <p class="card-category">청년금융</p>
+              <p class="d-day">D-27</p>
+            </div>
+            <!-- 카드 중앙 -->
+            <div class="middle">
+              <img src="images/sub_page/image-4.png" alt="저금통" />
+              <div class="like"><i class="fa-regular fa-star"></i></div>
+            </div>
+            <!-- 카드 하단 -->
+            <div class="bottom">
+              <div class="title">청년내일저축계좌 지원</div>
+              <div class="hashtag-group">
+                <div class="tag">#충남거주</div>
+                <div class="tag">#미취업자</div>
+                <div class="tag">#중위소득 50%</div>
+              </div>
+            </div>
+          </div>
+          <div class="card-5" id="card">
+            <!-- 카드 상단 -->
+            <div class="top">
+              <p class="card-category">진로</p>
+              <p class="d-day">상시</p>
+            </div>
+            <!-- 카드 중앙 -->
+            <div class="middle">
+              <img src="images/sub_page/image-5.png" alt="망원경" />
+              <div class="like"><i class="fa-regular fa-star"></i></div>
+            </div>
+            <!-- 카드 하단 -->
+            <div class="bottom">
+              <div class="title">현장중심 진로체험 프로그램</div>
+              <div class="hashtag-group">
+                <div class="tag">#경북거주</div>
+                <div class="tag">#예비청년</div>
+                <div class="tag">#연령제한없음</div>
+              </div>
+            </div>
+          </div>
+          <div class="card-6" id="card">
+            <!-- 카드 상단 -->
+            <div class="top">
+              <p class="card-category">문화/예술</p>
+              <p class="d-day">D-22</p>
+            </div>
+            <!-- 카드 중앙 -->
+            <div class="middle">
+              <img src="images/sub_page/image-6.png" alt="팔레트" />
+              <div class="like"><i class="fa-regular fa-star"></i></div>
+            </div>
+            <!-- 카드 하단 -->
+            <div class="bottom">
+              <div class="title">청년작가 작품 전시 지원</div>
+              <div class="hashtag-group">
+                <div class="tag">#서울거주</div>
+                <div class="tag">#전시공간마련</div>
+                <div class="tag">#연령제한없음</div>
+              </div>
+            </div>
+          </div>
+          <div class="card-7" id="card">
+            <!-- 카드 상단 -->
+            <div class="top">
+              <p class="card-category">보건/의료</p>
+              <p class="d-day">상시</p>
+            </div>
+            <!-- 카드 중앙 -->
+            <div class="middle">
+              <img src="images/sub_page/image-7.png" alt="병원" />
+              <div class="like"><i class="fa-regular fa-star"></i></div>
+            </div>
+            <!-- 카드 하단 -->
+            <div class="bottom">
+              <div class="title">자립준비청년 의료비 지원</div>
+              <div class="hashtag-group">
+                <div class="tag">#전국거주</div>
+                <div class="tag">#만 18~29세</div>
+                <div class="tag">#소득제한없음</div>
+              </div>
+            </div>
+          </div>
+          <div class="card-8" id="card">
+            <!-- 카드 상단 -->
+            <div class="top">
+              <p class="card-category">창업</p>
+              <p class="d-day">D-31</p>
+            </div>
+            <!-- 카드 중앙 -->
+            <div class="middle">
+              <img src="images/sub_page/image-8.png" alt="전구" />
+              <div class="like"><i class="fa-regular fa-star"></i></div>
+            </div>
+            <!-- 카드 하단 -->
+            <div class="bottom">
+              <div class="title">예비창업가 발굴 육성사업</div>
+              <div class="hashtag-group">
+                <div class="tag">#전국거주</div>
+                <div class="tag">#소득제한없음</div>
+                <div class="tag">#연령제한없음</div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <!-- 추천 섹션 -->
+        <section class="recommend-section">
+          <p class="section-title">
+            비슷한 조건의 청년들이 함께 관심 가진 혜택이에요.
+          </p>
+          <div class="swiper-container-wrapper">
+            <!-- 화살표 버튼 -->
+            <div class="swiper-button-prev custom-arrow"></div>
+            <div class="swiper recommend-swiper">
+              <div class="swiper-wrapper">
+                <!-- 카드 1 -->
+                <div class="swiper-slide">
+                  <div class="inner-card purple">
+                    <div class="recommend-img">
+                      <img src="images/sub_page/image-2.png" alt="집" />
+                    </div>
+                    <h3>청년주택드림청약통장</h3>
+                    <p><span>89%</span> 함께 찜했어요.</p>
+                  </div>
+                </div>
+                <!-- 카드 2 -->
+                <div class="swiper-slide">
+                  <div class="inner-card pink">
+                    <div class="recommend-img">
+                      <img src="images/sub_page/image-4.png" alt="저금통" />
+                    </div>
+                    <h3>청년도약계좌</h3>
+                    <p><span>91%</span> 함께 찜했어요.</p>
+                  </div>
+                </div>
+                <!-- 카드 3 -->
+                <div class="swiper-slide">
+                  <div class="inner-card blue">
+                    <div class="recommend-img">
+                      <img src="images/sub_page/image-6.png" alt="팔레트" />
+                    </div>
+                    <h3>청년문화예술패스</h3>
+                    <p><span>62%</span> 함께 찜했어요.</p>
+                  </div>
+                </div>
+                <!-- 카드 4 -->
+                <div class="swiper-slide">
+                  <div class="inner-card purple">
+                    <div class="recommend-img">
+                      <img src="images/sub_page/image-3.png" alt="집" />
+                    </div>
+                    <h3>청년주택드림청약통장</h3>
+                    <p><span>89%</span> 함께 찜했어요.</p>
+                  </div>
+                </div>
+                <!-- 카드 5 -->
+                <div class="swiper-slide">
+                  <div class="inner-card purple">
+                    <div class="recommend-img">
+                      <img src="images/sub_page/image-5.png" alt="집" />
+                    </div>
+                    <h3>청년주택드림청약통장</h3>
+                    <p><span>89%</span> 함께 찜했어요.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="swiper-button-next custom-arrow"></div>
           </div>
         </section>
       </div>
