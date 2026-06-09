@@ -77,3 +77,80 @@ window.addEventListener("load", () => {
     console.log("드래그 버그 수정 및 스무스 3D 스와이퍼 세팅 완료!");
   }
 });
+/* =========================
+SECTION 5 FINANCE LOOP
+========================= */
+window.addEventListener("load", () => {
+  const financeSection = document.querySelector(".finance-section");
+
+  if (!financeSection) return;
+
+  const financeTracks = financeSection.querySelectorAll(".finance-track");
+
+  financeTracks.forEach((track) => {
+    const cards = track.querySelectorAll("img");
+
+    if (cards.length < 4) {
+      console.warn(
+        "finance-track 안에 이미지가 너무 적습니다. 무한루프용으로 최소 6장 추천.",
+      );
+    }
+  });
+});
+/* =========================
+SECTION 5 FINANCE LOOP
+이미지 로딩 후 애니메이션 시작
+========================= */
+window.addEventListener("load", () => {
+  const financeSection = document.querySelector(".finance-section");
+
+  if (!financeSection) return;
+
+  const financeImages = financeSection.querySelectorAll(".finance-track img");
+
+  if (financeImages.length === 0) {
+    financeSection.classList.add("is-ready");
+    return;
+  }
+
+  let loadedCount = 0;
+
+  const startFinanceLoop = () => {
+    loadedCount++;
+
+    if (loadedCount >= financeImages.length) {
+      financeSection.classList.add("is-ready");
+    }
+  };
+
+  financeImages.forEach((img) => {
+    if (img.complete) {
+      startFinanceLoop();
+    } else {
+      img.addEventListener("load", startFinanceLoop);
+      img.addEventListener("error", startFinanceLoop);
+    }
+  });
+});
+// ==========================================
+// BAITDA 모바일 햄버거 메뉴 토글 스크립트
+// ==========================================
+document.addEventListener("DOMContentLoaded", () => {
+  const menuBtn = document.querySelector(".menu-btn");
+  const mobileMenu = document.querySelector(".mobile-menu-overlay");
+
+  // 햄버거 버튼 누를 때마다 토글 이벤트 실행
+  menuBtn.addEventListener("click", () => {
+    menuBtn.classList.toggle("open"); /* 삼선 ➔ X자 변신 */
+    mobileMenu.classList.toggle("active"); /* 메뉴 레이어 스르륵 오픈 */
+  });
+
+  // 모바일 메뉴 내 메뉴 링크를 클릭했을 때 메뉴판이 자동으로 닫히는 설정
+  const mobileLinks = document.querySelectorAll(".mobile-nav a");
+  mobileLinks.forEach((link) => {
+    link.addEventListener("click", () => {
+      menuBtn.classList.remove("open");
+      mobileMenu.classList.remove("active");
+    });
+  });
+});

@@ -4,7 +4,7 @@ SECTION 02
 .youth-section {
   position: relative;
   width: 100%;
-  min-height: 2400px;
+  min-height: 2300px;
   padding-top: 80px;
   background: #fff;
   overflow: hidden;
@@ -17,7 +17,7 @@ SECTION 02
   top: 0;
   left: 0;
   width: 100%;
-  height: 980px;
+  height: 1100px;
   background: #000;
   z-index: 0;
 }
@@ -89,7 +89,7 @@ SECTION 02
 .puzzle-small-right {
   top: 386px;
   left: 50%;
-  width: 145px;
+  width: 80px;
   z-index: 4;
   --x: 355px;
   --r: 18deg;
@@ -355,6 +355,7 @@ SECTION 02
 /* 카드 텍스트는 장식 위로 */
 .info-card .category,
 .info-card p {
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2);
   position: relative;
   z-index: 3;
 }
@@ -394,6 +395,7 @@ SECTION 02
   font-size: 18px;
   line-height: 1.6;
   font-weight: 600;
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2);
 }
 
 /* =========================
@@ -555,7 +557,7 @@ SECTION 02
 ========================= */
 @media (max-width: 1280px) and (min-width: 1101px) {
   .youth-section {
-    min-height: 2450px;
+    min-height: 2350px;
   }
 
   .card-wrap {
@@ -714,7 +716,7 @@ SECTION 02
 
   .youth-bottom {
     margin-top: 60px;
-    min-height: 1550px;
+    min-height: 1300px;
   }
 
   .youth-bg {
@@ -799,7 +801,6 @@ SECTION 02
 
 /* =========================
 작은 태블릿
-카드 2열 유지 + 퍼즐 축소
 ========================= */
 @media (max-width: 850px) {
   .youth-section::before {
@@ -857,15 +858,16 @@ SECTION 02
     width: 420px;
   }
 
+  /* vw 단위를 적용해서 화면 너비에 맞춰 스르륵 줄어들도록 수정 */
   .youth-desc {
     margin-top: 560px;
-    font-size: 26px;
-    line-height: 1.38;
+    font-size: 3.2vw;
+    line-height: 1.35;
   }
 
   .youth-bottom {
     margin-top: 50px;
-    min-height: 1500px;
+    min-height: 1200px;
   }
 
   .youth-bg {
@@ -897,7 +899,6 @@ SECTION 02
 
 /* =========================
 모바일 직전
-퍼즐이 작아지며 사라지는 느낌
 ========================= */
 @media (max-width: 720px) {
   .youth-section .puzzle-left1,
@@ -936,7 +937,6 @@ SECTION 02
 
 /* =========================
 모바일
-1열 카드 정렬 + 모든 오브제 숨김
 ========================= */
 @media (max-width: 600px) {
   .youth-section {
@@ -990,11 +990,12 @@ SECTION 02
     width: 300px;
   }
 
+  /* 모바일 화면 너비에 맞춰 유연하게 줄어들도록 vw로 세팅 */
   .youth-desc {
     margin-top: 430px;
     top: 0;
-    font-size: 21px;
-    line-height: 1.45;
+    font-size: 4.2vw;
+    line-height: 1.4;
   }
 
   .youth-bottom {
@@ -1100,9 +1101,11 @@ SECTION 02
     width: 270px;
   }
 
+  /* 초소형 디바이스 대응 */
   .youth-desc {
     margin-top: 405px;
-    font-size: 19px;
+    font-size: 4.5vw;
+    line-height: 1.35;
   }
 
   .card-wrap {
@@ -1129,17 +1132,14 @@ SECTION 02
 
 /* =========================
 큰 퍼즐 애니메이션
-중앙 고정값 유지하면서 둥둥 움직이게 수정
 ========================= */
 @keyframes floatBigLeft {
   0% {
     transform: translate(var(--x), 0px) rotate(0deg);
   }
-
   50% {
     transform: translate(var(--x), -20px) rotate(-4deg);
   }
-
   100% {
     transform: translate(var(--x), 0px) rotate(0deg);
   }
@@ -1149,11 +1149,9 @@ SECTION 02
   0% {
     transform: translate(var(--x), 0px) rotate(0deg);
   }
-
   50% {
     transform: translate(var(--x), 18px) rotate(5deg);
   }
-
   100% {
     transform: translate(var(--x), 0px) rotate(0deg);
   }
@@ -1161,17 +1159,14 @@ SECTION 02
 
 /* =========================
 작은 퍼즐 애니메이션
-중앙 고정값 유지하면서 둥둥 움직이게 수정
 ========================= */
 @keyframes floatPuzzleLeft {
   0% {
     transform: translate(var(--x), 0px) rotate(-25deg);
   }
-
   50% {
     transform: translate(var(--x), -20px) rotate(-29deg);
   }
-
   100% {
     transform: translate(var(--x), 0px) rotate(-25deg);
   }
@@ -1181,11 +1176,9 @@ SECTION 02
   0% {
     transform: translate(var(--x), 0px) rotate(18deg);
   }
-
   50% {
     transform: translate(var(--x), 18px) rotate(23deg);
   }
-
   100% {
     transform: translate(var(--x), 0px) rotate(18deg);
   }

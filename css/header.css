@@ -11,26 +11,39 @@ HEADER SECTION
   left: 0;
   z-index: 999;
 
-  overflow: hidden;
+  /* 2,3페이지처럼 바깥으로 삐져나가는 장식 요소를 깔끔하게 커트 */
+  /* 🚨 덮고 있던 창이 헤더 밑으로 슥 내려와야 하므로 overflow는 hidden 대신 기본 상태로 둡니다. */
 }
 
 /* =========================
-구름 오브제
+구름 오브제 (2,3페이지 스타일로 완벽 통일)
+화면이 커져도 뷰포트 중앙(50%) 기준으로 완벽 고정
 ========================= */
-.cloud-left {
+.headercloud-left,
+.headercloud-right {
   position: absolute;
-  top: 0px;
-  left: -2px;
-  width: 240px;
-  z-index: 1;
+  display: block;
+  pointer-events: none;
+  user-select: none;
 }
 
-.cloud-right {
+.headercloud-left {
+  top: 0px;
+  left: 45%; /* 🚨 기존 수치 그대로 유지 */
+  width: 240px;
+  z-index: 100;
+  /* 중앙(50%) 기준으로 왼쪽으로 딱 알맞게 밀어두기 */
+  transform: translateX(-862px);
+}
+
+.headercloud-right {
   position: absolute;
   top: 0px;
-  right: -2px;
+  left: 55%; /* 🚨 기존 수치 그대로 유지 */
   width: 240px;
-  z-index: 1;
+  z-index: 100;
+  /* 중앙(50%) 기준으로 오른쪽으로 딱 알맞게 밀어두기 */
+  transform: translateX(622px);
 }
 
 /* =========================
@@ -42,6 +55,7 @@ HEADER
 
   position: relative;
   z-index: 10;
+  background: #000; /* 🚨 메뉴창이 내려올 때 가려지지 않도록 배경색 확실히 지정 */
 }
 
 /* =========================
@@ -83,12 +97,11 @@ HEADER INNER
 /* 햄버거 선 */
 .menu-btn span {
   display: block;
-
   width: 28px;
   height: 2.5px;
-
   background: #fff;
   border-radius: 999px;
+  transition: 0.3s ease-in-out; /* X자 변신 애니메이션 속도 */
 }
 .menu-btn:hover {
   opacity: 0.7;
@@ -131,7 +144,7 @@ HEADER INNER
 }
 
 .nav a:hover {
-  opacity: 0.7;
+  color: #ffcc00;
 }
 
 /* =========================
@@ -170,7 +183,73 @@ HEADER INNER
 }
 
 /* =========================
-반응형
+⚡ [수정] 모바일 전체 메뉴판 레이어 스타일 ➔ 상단 미니 드롭다운으로 변경
+========================= */
+.mobile-menu-overlay {
+  position: absolute; /* 🚨 fixed에서 absolute로 변경해서 헤더 섹션에 귀속 */
+  top: 100%; /* 🚨 검정 헤더 딱 끝나는 지점 밑에 붙도록 세팅 */
+  left: 0;
+  width: 100%;
+  height: auto; /* 🚨 100vh 빼고, 메뉴 글자 크기만큼만 잡히도록 수정 */
+  background: rgba(0, 0, 0, 0.95); /* 화면을 고급스럽게 덮는 블랙 팝업 */
+  padding: 40px 0; /* 드롭다운 창 내부 위아래 여백 */
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  /* 위로 살짝 숨겨두었다가 슬라이드로 내려오는 연출 */
+  transform: translateY(-10px);
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease-in-out;
+  z-index: 5; /* 헤더보다 아래, 일반 컨텐츠보단 위 */
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3); /* 아래쪽 경계 부드러운 그림자 */
+}
+
+/* 모바일 메뉴 활성화 상태 */
+.mobile-menu-overlay.active {
+  transform: translateY(0);
+  opacity: 1;
+  visibility: visible;
+}
+
+/* 모바일 전용 세로 메뉴 정렬 */
+.mobile-nav {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 40px;
+}
+
+.mobile-nav a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 28px;
+  font-family: "Black Han Sans", sans-serif;
+  letter-spacing: -0.5px;
+  transition: 0.3s;
+}
+
+.mobile-nav a:hover {
+  color: #ffcc00; /* 호버 시 포인트 컬러 강조 */
+}
+
+/* ⚡ [추가] 햄버거 버튼 클릭 시 X자로 변신하는 모션 */
+.menu-btn.open span:nth-child(1) {
+  transform: translateY(9.5px) rotate(45deg);
+}
+
+.menu-btn.open span:nth-child(2) {
+  opacity: 0;
+}
+
+.menu-btn.open span:nth-child(3) {
+  transform: translateY(-10px) rotate(-45deg);
+}
+
+/* =========================
+반응형 구간
 ========================= */
 @media (max-width: 1280px) {
   .header {
@@ -198,9 +277,12 @@ HEADER INNER
     font-size: 24px;
   }
 
-  .cloud-left,
-  .cloud-right {
-    display: none;
+  /* ⚡ 1280px 이하에서 구름 오브제 칼같이 삭제 (!important 추가) */
+  .headercloud-left,
+  .headercloud-right {
+    display: none !important;
+    visibility: hidden !important;
+    opacity: 0 !important;
   }
 }
 
@@ -227,8 +309,11 @@ HEADER INNER
     font-size: 22px;
   }
 
-  .cloud-left,
-  .cloud-right {
-    display: none;
+  /* ⚡ 900px 모바일 구간에서도 안전하게 한 번 더 삭제 */
+  .headercloud-left,
+  .headercloud-right {
+    display: none !important;
+    visibility: hidden !important;
+    opacity: 0 !important;
   }
 }

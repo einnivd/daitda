@@ -1,0 +1,291 @@
+/* =========================
+SECTION 5
+금융 패키지 영역
+========================= */
+.finance-section {
+  position: relative;
+  width: 100%;
+  background: #fff;
+  /* [수정] 상단 검은 원의 둥근 곡선을 완전히 보여준 뒤 배치되도록 여백 확보 */
+  padding: 120px 0 120px;
+  margin-top: 0;
+  z-index: 1;
+}
+
+.finance-black-box {
+  position: relative;
+  width: 100%;
+  max-width: none;
+  height: 860px;
+  margin: 0;
+  background: #000;
+  overflow: hidden;
+}
+
+.finance-text {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-760px, -50%);
+  z-index: 5;
+  color: #fff;
+  width: 760px;
+  max-width: 760px;
+}
+
+.finance-text h2 {
+  font-family: "Black Han Sans", sans-serif;
+  font-weight: normal;
+  font-size: 46px;
+  line-height: 1.25;
+  letter-spacing: 0.02em;
+  margin-bottom: 22px;
+  white-space: nowrap;
+}
+
+.finance-text p {
+  font-family: "Noto Sans KR", sans-serif;
+  font-size: 18px;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.82);
+}
+
+.finance-card-area {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  transform: translateX(150px);
+  width: 620px;
+  height: 100%;
+  display: flex;
+  gap: 70px;
+  overflow: hidden;
+  z-index: 4;
+}
+
+.finance-column {
+  position: relative;
+  width: 240px;
+  height: 100%;
+  overflow: hidden;
+}
+
+.finance-track {
+  display: flex;
+  flex-direction: column;
+  gap: 34px;
+  will-change: transform;
+  transform: translate3d(0, 0, 0);
+}
+
+.finance-track img {
+  width: 240px;
+  height: 240px;
+  display: block;
+  border-radius: 22px;
+  object-fit: cover;
+  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.35);
+}
+
+.column-up .finance-track,
+.column-down .finance-track {
+  animation-play-state: paused;
+}
+
+.finance-section.is-ready .column-up .finance-track {
+  animation: financeMoveUp 10s linear infinite;
+}
+
+.finance-section.is-ready .column-down .finance-track {
+  animation: financeMoveDown 10s linear infinite;
+}
+
+.finance-card-area:hover .finance-track {
+  animation-play-state: paused;
+}
+
+@keyframes financeMoveUp {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+  100% {
+    transform: translate3d(0, -50%, 0);
+  }
+}
+
+@keyframes financeMoveDown {
+  0% {
+    transform: translate3d(0, -50%, 0);
+  }
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+.finance-card-area::before,
+.finance-card-area::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 140px;
+  z-index: 10;
+  pointer-events: none;
+}
+
+.finance-card-area::before {
+  top: 0;
+  background: linear-gradient(180deg, #000 0%, rgba(0, 0, 0, 0) 100%);
+}
+
+.finance-card-area::after {
+  bottom: 0;
+  background: linear-gradient(0deg, #000 0%, rgba(0, 0, 0, 0) 100%);
+}
+
+@media (max-width: 1400px) {
+  .finance-section {
+    padding-top: 60px;
+  }
+
+  .finance-black-box {
+    height: 780px;
+  }
+
+  .finance-text {
+    transform: translate(-610px, -50%);
+    width: 660px;
+    max-width: 660px;
+  }
+
+  .finance-text h2 {
+    font-size: 40px;
+  }
+
+  .finance-card-area {
+    transform: translateX(95px);
+    width: 560px;
+    gap: 55px;
+  }
+
+  .finance-column {
+    width: 215px;
+  }
+
+  .finance-track img {
+    width: 215px;
+    height: 215px;
+  }
+}
+
+@media (max-width: 1100px) {
+  .finance-section {
+    /* [수정] 3,4번 영역과의 안전거리 유지 */
+    padding: 80px 0 90px;
+  }
+
+  .finance-black-box {
+    width: 100%;
+    height: auto;
+    min-height: 980px;
+    padding: 90px 40px;
+  }
+
+  .finance-text {
+    position: relative;
+    left: auto;
+    top: auto;
+    transform: none;
+    width: 100%;
+    max-width: 720px;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .finance-text h2 {
+    font-size: 36px;
+    white-space: normal;
+  }
+
+  .finance-text p {
+    font-size: 16px;
+  }
+
+  .finance-card-area {
+    position: relative;
+    left: auto;
+    top: auto;
+    transform: none;
+    margin: 70px auto 0;
+    width: 560px;
+    height: 650px;
+    gap: 60px;
+  }
+
+  .finance-column {
+    width: 250px;
+  }
+
+  .finance-track img {
+    width: 250px;
+    height: 250px;
+  }
+}
+
+@media (max-width: 700px) {
+  .finance-section {
+    padding: 0px 0 0px;
+  }
+
+  .finance-black-box {
+    width: 100%;
+    min-height: 820px;
+    padding: 70px 22px;
+  }
+
+  .finance-text h2 {
+    font-size: 28px;
+    line-height: 1.3;
+    white-space: normal;
+  }
+
+  .finance-text p {
+    font-size: 14px;
+  }
+
+  .finance-card-area {
+    width: 350px;
+    height: 520px;
+    gap: 34px;
+  }
+
+  .finance-column {
+    width: 158px;
+  }
+
+  .finance-track {
+    gap: 22px;
+  }
+
+  .finance-track img {
+    width: 158px;
+    height: 158px;
+    border-radius: 16px;
+  }
+}
+
+@media (max-width: 390px) {
+  .finance-card-area {
+    width: 310px;
+    gap: 24px;
+  }
+
+  .finance-column {
+    width: 143px;
+  }
+
+  .finance-track img {
+    width: 143px;
+    height: 143px;
+  }
+}
