@@ -24,11 +24,11 @@
 #card {
   width: 250px;
   height: 350px;
-  border: 1px solid #999;
+  /* border: 1px solid #999; */
   border-radius: 30px;
   overflow: hidden;
   font-family: "Noto Sans KR", sans-serif;
-  box-shadow: 0 0px 15px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 0px 10px rgba(0, 0, 0, 0.3);
 }
 /* 카드 전체 컨테이너 */
 .card-1,
@@ -70,7 +70,9 @@
   font-weight: bold;
   color: var(--main);
 }
-
+.card-2 .d-day{
+  color: red;
+}
 /* 카드 중앙 */
 .middle {
   position: relative;
@@ -91,7 +93,7 @@
   position: absolute;
   right: 5px;
   bottom: 5px;
-  font-size: 28px;
+  font-size: 18px;
   cursor: pointer;
 }
 
