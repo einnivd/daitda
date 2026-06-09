@@ -18,37 +18,41 @@
 /* 화살표와 스와이퍼를 감싸는 영역 */
 .swiper-container-wrapper {
   position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  /* display: flex; */
+  /* align-items: center; */
+  /* justify-content: center; */
   width: 100%;
   max-width: 1500px; /* 화살표까지 포함한 전체 영역 */
   margin: 0 auto;
+  overflow: hidden;
 }
 
 .recommend-swiper {
+  /* position: relative; */
   width: 100%;
   max-width: 1200px;
-  margin: 0 auto;
-  /* overflow: visible !important;  */
+  /* margin: 0 auto; */
+  overflow: visible; 
 }
 .swiper-wrapper{
-  display: flex;
-  justify-content: flex-start;
-  gap: 0px;
+  /* display: flex !important; */
+  /* justify-content: flex-start !important; */
+  /* gap: 0px !important; */
 }
 .recommend-swiper .swiper-slide {
   /* width: auto;  */
   display: flex;
   justify-content: center;
-  align-items: center;
+  /* align-items: center; */
 }
 /* 카드 디자인 */
 .inner-card {
   border-radius: 30px;
   padding: 40px 20px;
-  width: 100%;
-  min-width: 250px;
+  /* width: 100%; */
+  width: 320px;
+  /* min-width: 250px; */
+  min-width: unset;
   height: 250px;
   display: flex;
   flex-direction: column;
@@ -63,8 +67,8 @@
 }
 .inner-card img {
   width: 100%;
-  display: block;
-  margin-bottom: 20px;
+  /* display: block; */
+  /* margin-bottom: 20px; */
   object-fit: contain;
 }
 
@@ -98,25 +102,20 @@
 
 /* 화살표 커스텀 디자인 */
 .custom-arrow {
-  color: #fff !important; /* 화살표 흰색 */
-  position: absolute !important;
-   z-index: 999 !important;
+  color: #fff ; 
+  position: absolute ;
 }
 
 .custom-arrow::after {
-  font-size: 24px !important; /* 화살표 크기 */
+  font-size: 24px ;
   font-weight: bold;
-  position: absolute !important;
-  top: 50% !important;
-  transform: translateY(-50%);
-  z-index: 10;
-  color: #fff !important;
+  color: #fff ;
 }
 
 /* 화살표 위치 세밀 조정 */
 .swiper-button-prev {
-  left: 20px !important;
+  left: 20px;
 }
 .swiper-button-next {
-  right: 20px !important;
+  right: 20px;
 }
