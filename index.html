@@ -68,14 +68,11 @@
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 
     <!-- Custom JS -->
-    <script src="js/main/main.js"></script>
-    <script src="js/sub/sub.js"></script>
+    <script src="js/main/main.js" defer></script>
+    <!-- <script src="js/sub/sub.js"></script> -->
   </head>
 
   <body>
-    <!-- =========================
-    상단 메뉴바
-    ========================= -->
     <section class="header-section">
       <img
         src="images/main_page/image_32-removebg-preview 1.png"
@@ -104,7 +101,7 @@
 
           <h1 class="logo">
             <a href="index.html">
-              <img src="images/main_page/Asset 19 2.png" alt="BAITDA 로고" />
+              <img src="images/main_page/Asset 19.png" alt="BAITDA 로고" />
             </a>
           </h1>
 
@@ -126,6 +123,43 @@
           <a href="#">자산플랜</a>
           <a href="#">내가찜한</a>
         </nav>
+      </div>
+
+      <div class="customer-service-wrap">
+        <button class="cs-fixed-btn">
+          <i class="fa-regular fa-comments"></i>
+          <span>CS</span>
+        </button>
+
+        <div class="cs-modal-box">
+          <div class="cs-modal-header">
+            <h3>DAITDA 고객센터</h3>
+            <button class="cs-close-btn">&times;</button>
+          </div>
+          <div class="cs-modal-body">
+            <p class="cs-greeting">
+              안녕하세요, 재준님! 👋<br /><strong>무엇을 도와드릴까요?</strong>
+            </p>
+            <ul class="cs-menu-list">
+              <li>
+                <a href="#"
+                  ><i class="fa-solid fa-circle-question"></i> 자주 묻는 질문</a
+                >
+              </li>
+              <li>
+                <a href="#"
+                  ><i class="fa-solid fa-headset"></i> 1:1 실시간 문의</a
+                >
+              </li>
+              <li>
+                <a href="#"
+                  ><i class="fa-solid fa-file-invoice-dollar"></i> 자산플랜 이용
+                  안내</a
+                >
+              </li>
+            </ul>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -723,7 +757,7 @@ SECTION 6
       <div class="footer-inner">
         <!-- 왼쪽 로고 -->
         <div class="footer-logo">
-          <img src="images/main_page/Asset 19 2.png" alt="청년 다잇다 로고" />
+          <img src="images/main_page/Asset 19.png" alt="청년 다잇다 로고" />
         </div>
         <!-- 오른쪽 정보 -->
         <div class="footer-right">
