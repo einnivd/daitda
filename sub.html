@@ -12,9 +12,6 @@
     <link rel="stylesheet" href="css/sub/card-section.css" />
     <link rel="stylesheet" href="css/sub/recommend-section.css" />
 
-    <!-- 2. jQuery -->
-    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
-
     <!-- 4. 폰트어썸 -->
     <link
       rel="stylesheet"
@@ -30,7 +27,6 @@
       href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
     />
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-    <script src="js/sub/sub.js"></script>
 
     <!-- 7. seo 엔진 최적화 -->
     <!-- 웹페이지의 설명을 정의 -->
@@ -76,8 +72,12 @@
     <!-- AOS js -->
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 
+    <!-- 2. jQuery -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
     <!-- 6. 자바스크립트 (defer를 붙이면 HTML이 다 읽힌 후 실행) -->
-    <script src="js/sub.js" defer></script>
+    <script src="js/sub/recommend.js" defer></script>
+    <script src="js/sub/modal.js" defer></script>
   </head>
   <body>
     <!-- 전체 영역 -->
@@ -204,17 +204,23 @@
             />
           </div>
           <!-- 퍼즐 모달창 -->
-          <div class="modal-wrap">
+          <div class="modal-wrap" id="puzzle-modal" style="display: none">
             <div id="modal-box">
-              <img src="images/sub_page/modal_purple.png" alt="모달창_purple">
-              <p class="modalNotice">
-                해당 사이트는 <strong>스터디용</strong>으로 제작되었으며,<br />
-                리소스는 <strong>원저작자</strong>에게 있음을 알려드립니다.<br />
-                문제사항이 있을 시 연락주시면 빠른 시일 내 조치하겠습니다.<br />
-                <span>본 사이트는 Chrome 에 최적화되어 있습니다.</span>
-              </p>
-              <!-- modal close -->
-              <div class="modalClose"><i>× Close</i></div>
+              <!-- 퍼즐 조각 배경 이미지 -->
+               <img src="" alt="모달퍼즐" id="modal-puzzle-shape" class="modal-puzzle-shape">
+              <!-- [상단] 닫기 버튼과 카테고리 태그 -->
+              <div class="modal-header">
+                <span id="modal-category" class="category-tag">카테고리명</span>
+                <span class="close-btn">&times;</span>
+              </div>
+
+              <!-- [중앙] 질문 및 퍼즐 모양 컨텐츠 -->
+              <div class="modal-content">
+                <h2 id="modal-question">질문이 들어갑니다.</h2>
+                <div id="option-container" class="option-buttons">
+                  <!-- 버튼들은 JS에서 생성 -->
+                </div>
+              </div>
             </div>
           </div>
           <!-- 퍼즐 완성도 -->
