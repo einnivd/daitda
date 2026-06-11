@@ -1,6 +1,6 @@
 footer {
   width: 100%;
-  background-color: #743bff;
+  background-color: var(--main);
   padding: 28px 70px;
   box-sizing: border-box;
 }

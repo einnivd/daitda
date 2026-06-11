@@ -76,72 +76,113 @@
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
 
     <!-- 6. 자바스크립트 (defer를 붙이면 HTML이 다 읽힌 후 실행) -->
+     <script src="js/main/main.js"></script>
     <script src="js/sub/recommend.js" defer></script>
     <script src="js/sub/modal.js" defer></script>
+
   </head>
   <body>
     <!-- 전체 영역 -->
     <div class="wrap">
       <section class="header-section">
-        <!-- 왼쪽 구름 오브제 -->
-        <img
-          src="images/main_page/image_32-removebg-preview 1.png"
-          alt=""
-          class="cloud-left"
-        />
+      <img
+        src="images/main_page/image_32-removebg-preview 1.png"
+        alt=""
+        class="headercloud-left"
+      />
 
-        <!-- 오른쪽 구름 오브제 -->
-        <img
-          src="images/main_page/image_32-removebg-preview 2.png"
-          alt=""
-          class="cloud-right"
-        />
+      <img
+        src="images/main_page/image_32-removebg-preview 2.png"
+        alt=""
+        class="headercloud-right"
+      />
 
-        <header class="header">
-          <div class="header-inner">
-            <!-- 햄버거 버튼 -->
-            <button class="menu-btn">
-              <span></span>
-              <span></span>
-              <span></span>
-            </button>
+      <header class="header">
+        <div class="header-inner">
+          <button class="menu-btn">
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
 
-            <!-- 왼쪽 메뉴 -->
-            <nav class="nav left-nav">
-              <a href="#">마이퍼즐</a>
-              <a href="#">청년지원</a>
-            </nav>
+          <nav class="nav left-nav">
+            <a href="sub.html">마이퍼즐</a>
+            <a href="#">청년지원</a>
+          </nav>
 
-            <!-- 가운데 로고 -->
-            <h1 class="logo">
-              <a href="index.html">
-                <img src="images/main_page/Asset 19 2.png" alt="BAITDA 로고" />
-              </a>
-            </h1>
-
-            <!-- 오른쪽 메뉴 -->
-            <nav class="nav right-nav">
-              <a href="#">자산플랜</a>
-              <a href="#">내가찜한</a>
-            </nav>
-
-            <!-- 유저 아이콘 -->
-            <a href="#" class="user-btn">
-              <i class="fa-regular fa-user"></i>
+          <h1 class="logo">
+            <a href="index.html">
+              <img src="images/main_page/Asset 19.png" alt="BAITDA 로고" />
             </a>
+          </h1>
+
+          <nav class="nav right-nav">
+            <a href="#">자산플랜</a>
+            <a href="#">내가찜한</a>
+          </nav>
+
+          <a href="#" class="user-btn">
+            <i class="fa-regular fa-user"></i>
+          </a>
+        </div>
+      </header>
+
+      <div class="mobile-menu-overlay">
+        <nav class="mobile-nav">
+          <a href="sub.html">마이퍼즐</a>
+          <a href="#">청년지원</a>
+          <a href="#">자산플랜</a>
+          <a href="#">내가찜한</a>
+        </nav>
+      </div>
+
+      <div class="customer-service-wrap">
+        <button class="cs-fixed-btn">
+          <i class="fa-regular fa-comments"></i>
+          <span>CS</span>
+        </button>
+
+        <div class="cs-modal-box">
+          <div class="cs-modal-header">
+            <h3>DAITDA 고객센터</h3>
+            <button class="cs-close-btn">&times;</button>
           </div>
-        </header>
-      </section>
+          <div class="cs-modal-body">
+            <p class="cs-greeting">
+              안녕하세요, 재준님! 👋<br /><strong>무엇을 도와드릴까요?</strong>
+            </p>
+            <ul class="cs-menu-list">
+              <li>
+                <a href="#"
+                  ><i class="fa-solid fa-circle-question"></i> 자주 묻는 질문</a
+                >
+              </li>
+              <li>
+                <a href="#"
+                  ><i class="fa-solid fa-headset"></i> 1:1 실시간 문의</a
+                >
+              </li>
+              <li>
+                <a href="#"
+                  ><i class="fa-solid fa-file-invoice-dollar"></i> 자산플랜 이용
+                  안내</a
+                >
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
       <div class="inner">
         <!-- 배경 퍼즐 조각 -->
-        <div class="background-piece">
+        <!-- <div class="background-piece">
           <img src="images/sub_page/puzzle-1.png" alt="퍼즐1" />
           <img src="images/sub_page/puzzle-2.png" alt="퍼즐2" />
           <img src="images/sub_page/puzzle-3.png" alt="퍼즐3" />
           <img src="images/sub_page/puzzle-4.png" alt="퍼즐4" />
           <img src="images/sub_page/puzzle-5.png" alt="퍼즐5" />
           <img src="images/sub_page/puzzle-6.png" alt="퍼즐6" />
-        </div>
+        </div> -->
         <!-- 퍼즐 게임 섹션 -->
         <section class="puzzle-section">
           <!-- 상단 카피 -->
@@ -220,13 +261,19 @@
                 <div id="option-container" class="option-buttons">
                   <!-- 버튼들은 JS에서 생성 -->
                 </div>
+                <div id="complete-btn">
+                  완료
+                </div>
               </div>
             </div>
           </div>
           <!-- 퍼즐 완성도 -->
           <div class="completion">
+            <p>나의 퍼즐 완성도:  <span id="completion-percent">0%</span></p>
             <div class="completion-box">
-              <img src="images/sub_page/graph.png" alt="퍼즐 완성도" />
+              <div class="completion-fill">
+                <img src="images/sub_page/graph.png" alt="퍼즐 완성도" />
+              </div>
             </div>
           </div>
           <!-- 결과 보기 버튼 -->
