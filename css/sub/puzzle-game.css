@@ -255,6 +255,10 @@
   pointer-events: none;
   z-index: 999;
 }
+.piece-category p {
+  opacity: 0;
+  transition: 0.4s;
+}
 .piece-category p:nth-child(1) {
   position: absolute;
   top: 190px;
@@ -319,7 +323,7 @@
   width: 700px;
   height: 700px;
   pointer-events: none;
-  /* z-index: 999; */
+  z-index: 999;
 }
 /* 퍼즐 모달창 */
 .modal-wrap {
@@ -350,7 +354,7 @@
   object-fit: contain;
   z-index: 1;
 }
-#modal-category{
+#modal-category {
   position: absolute;
   top: 50px;
   left: 40px;
@@ -365,11 +369,13 @@
   line-height: 3rem;
   z-index: 3;
 }
-.close-btn{
+.close-btn {
   position: absolute;
-  top: 60px;
-  right: 210px;
+  top: 140px;
+  right: 155px;
   font-size: 2rem;
+  cursor: pointer;
+  z-index: 9;
 }
 .modal-content {
   position: absolute;
@@ -382,21 +388,154 @@
   padding: 120px 80px;
   text-align: center;
 }
+/* 퍼즐 타입별 모달 레이아웃  */
+
+/* 가로 퍼즐 (purple) */
+#modal-box.horizontal .modal-content {
+  justify-content: center;
+  padding-top: 80px;
+}
+
+#modal-box.horizontal #modal-question {
+  margin-top: 30px;
+  font-size: 1.4rem;
+}
+
+#modal-box.horizontal .option-buttons {
+  width: 360px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+}
+
+#modal-box.horizontal .option-btn {
+  width: calc((100% - 24px) / 3);
+}
+
+/* 세로 퍼즐 (pink, blue) */
+#modal-box.vertical .modal-content {
+  justify-content: center;
+  /* padding-top: 40px; */
+}
+
+#modal-box.vertical #modal-question {
+  margin-bottom: 20px;
+  font-size: 1.4rem;
+}
+
+#modal-box.vertical .option-buttons {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  width: 180px;
+}
+
+#modal-box.vertical .option-btn {
+  width: 100%;
+}
+#modal-box.vertical #modal-category {
+  position: absolute;
+  top: -55px;
+}
+#modal-box.vertical .close-btn {
+  position: absolute;
+  top: 150px;
+  right: 160px;
+  cursor: pointer;
+}
+#modal-question {
+  margin: 20px auto;
+}
+/* 모달창 옵션 버튼 */
+.option-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+  max-width: 520px;
+  margin: 0 auto;
+}
+
+.option-btn {
+  width: calc((100% - 24px) / 3);
+  min-height: 56px;
+  border-radius: 999px;
+  border: 1px solid #ddd;
+  background: #fff;
+  cursor: pointer;
+  font-size: 16px;
+  transition: 0.3s;
+}
+
+.option-btn.active {
+  background: #9b89f7;
+  color: white;
+  border-color: #9b89f7;
+}
+/* 모달창 완료 버튼 */
+#complete-btn {
+  margin-top: 28px;
+  padding: 8px 30px;
+  border: none;
+  border-radius: 999px;
+  color: #fff;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: 0.3s;
+}
+#complete-btn:hover {
+  transform: translateY(-2px);
+}
+#modal-box.horizontal #complete-btn {
+  background: var(--sub-1-1);
+}
+
+#complete-btn:hover {
+  transform: translateY(-2px);
+}
 /* 퍼즐 완성도 */
 .completion {
   margin: 100px auto;
   width: 800px;
+  text-align: center;
 }
+.completion p {
+  color: #fff;
+  margin-bottom: 20px;
+  font-size: 2rem;
+}
+/* 퍼즐 완성도 그래프 */
 .completion-box {
   width: 100%;
-  padding: 7px;
-  border-radius: 100px;
-  background-color: #fff;
+  height: 100%;
+  border-radius: 999px;
+  overflow: hidden; /* 밖으로 넘치는 부분 숨김 */
+  background: rgba(255,255,255,1);
 }
-.completion-box img {
+/* 실제 차오르는 영역 */
+.completion-fill {
+  /* 처음엔 안 보이게 */
+  width: 0%; 
+  height: 100%;
+  overflow: hidden;
+  transition: width 0.6s ease;
+}
+
+/* 그래프 이미지는 항상 원본 크기 유지 */
+.completion-fill img {
+  width: 800px;
+  height: 90%;
+  padding: 5px;
+  display: block;
+  object-fit: cover;
+}
+/* .completion-box img {
   width: 100%;
   display: block;
-}
+} */
 /* 결과 보기 버튼 */
 .result-btn {
   display: inline-block;
