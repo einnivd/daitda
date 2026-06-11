@@ -1,0 +1,106 @@
+/* ===================================================
+   ✨ 에이전트 이든이 제안하는 인터랙션 핵심 CSS
+   =================================================== */
+
+/* 1. 헤더 스크롤 시 유리창 효과 (Glassmorphism) */
+.header {
+  transition: all 0.3s ease;
+}
+.header.scrolled {
+  background: rgba(255, 255, 255, 0.8) !important;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+}
+
+/* 2. 타이핑 효과 커서 디자인 */
+.typed-cursor {
+  color: #9b73fc;
+  font-weight: bold;
+}
+
+/* 3. 실시간 숫자 카운팅 보드 디자인 */
+.counter-board-wrap {
+  display: flex;
+  justify-content: center;
+  gap: 60px;
+  margin: 50px auto 30px auto;
+  max-width: 800px;
+  text-align: center;
+  background: rgba(255, 255, 255, 0.6);
+  padding: 25px;
+  border-radius: 16px;
+  box-shadow: 0 8px 32px rgba(155, 115, 252, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.8);
+}
+.counter-item {
+  flex: 1;
+}
+.counter-num {
+  font-size: 36px;
+  font-weight: 800;
+  color: #9b73fc;
+  font-family: 'Montserrat', sans-serif; /* 숫자가 더 예쁘게 나오게 설정 */
+}
+.counter-item b {
+  font-size: 20px;
+  font-weight: bold;
+  color: #333;
+  margin-left: 2px;
+}
+.counter-item p {
+  font-size: 14px;
+  color: #666;
+  margin-top: 8px;
+  font-weight: 500;
+}
+
+/* 4. 고객센터 FAQ 아코디언 추가 애니메이션 */
+.faq-item {
+  border-bottom: 1px solid #f1eeff;
+  overflow: hidden;
+}
+.faq-q {
+  width: 100%;
+  padding: 15px 10px;
+  text-align: left;
+  background: none;
+  border: none;
+  outline: none;
+  font-weight: 600;
+  color: #333;
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+.faq-q:hover {
+  color: #9b73fc;
+}
+.faq-a {
+  max-height: 0; /* JS에서 자동으로 열리도록 애니메이션 처리 */
+  overflow: hidden;
+  transition: max-height 0.3s ease-out;
+  background: #faf9ff;
+  border-radius: 8px;
+}
+.faq-a p {
+  padding: 15px;
+  font-size: 13px;
+  color: #666;
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* 5. 1:1 채팅방 가짜 로딩 인터랙션 스타일 */
+.loading-text {
+  text-align: center;
+  color: #9b73fc;
+  font-size: 13px;
+  padding: 30px 0;
+  font-weight: 600;
+  animation: pulse 1.5s infinite;
+}
+@keyframes pulse {
+  0% { opacity: 0.6; }
+  50% { opacity: 1; }
+  100% { opacity: 0.6; }
+}

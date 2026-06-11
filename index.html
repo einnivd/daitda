@@ -133,31 +133,104 @@
 
         <div class="cs-modal-box">
           <div class="cs-modal-header">
-            <h3>DAITDA 고객센터</h3>
+            <button class="cs-back-btn">
+              <i class="fa-solid fa-chevron-left"></i>
+            </button>
+            <h3 class="cs-title">DAITDA 고객센터</h3>
             <button class="cs-close-btn">&times;</button>
           </div>
+
           <div class="cs-modal-body">
-            <p class="cs-greeting">
-              안녕하세요, 재준님! 👋<br /><strong>무엇을 도와드릴까요?</strong>
-            </p>
-            <ul class="cs-menu-list">
-              <li>
-                <a href="#"
-                  ><i class="fa-solid fa-circle-question"></i> 자주 묻는 질문</a
+            <div class="cs-main-panel active">
+              <p class="cs-greeting">
+                안녕하세요, 재준님! 👋<br /><strong
+                  >무엇을 도와드릴까요?</strong
                 >
-              </li>
-              <li>
-                <a href="#"
-                  ><i class="fa-solid fa-headset"></i> 1:1 실시간 문의</a
-                >
-              </li>
-              <li>
-                <a href="#"
-                  ><i class="fa-solid fa-file-invoice-dollar"></i> 자산플랜 이용
-                  안내</a
-                >
-              </li>
-            </ul>
+              </p>
+              <ul class="cs-menu-list">
+                <li>
+                  <a href="#" class="cs-trigger" data-target="faq">
+                    <i class="fa-solid fa-circle-question"></i> 자주 묻는 질문
+                  </a>
+                </li>
+                <li>
+                  <a href="#" class="cs-trigger" data-target="chat">
+                    <i class="fa-solid fa-headset"></i> 1:1 실시간 문의
+                  </a>
+                </li>
+                <li>
+                  <a href="#" class="cs-trigger" data-target="guide">
+                    <i class="fa-solid fa-file-invoice-dollar"></i> 자산플랜
+                    이용 안내
+                  </a>
+                </li>
+              </ul>
+            </div>
+
+            <div class="cs-sub-panel" id="panel-faq">
+              <h4 class="sub-panel-title">자주 묻는 질문</h4>
+              <div class="faq-accordion">
+                <div class="faq-item">
+                  <button class="faq-q">
+                    Q. 청년지원금 신청은 어떻게 하나요?
+                  </button>
+                  <div class="faq-a">
+                    <p>
+                      청년지원 메뉴에서 본인의 연령과 지역을 설정하시면 현재
+                      신청 가능한 맞춤형 지원 정책을 바로 확인하고 신청하실 수
+                      있습니다.
+                    </p>
+                  </div>
+                </div>
+                <div class="faq-item">
+                  <button class="faq-q">
+                    Q. 자산플랜 데이터는 안전한가요?
+                  </button>
+                  <div class="faq-a">
+                    <p>
+                      DAITDA는 최고 수준의 암호화 보안 시스템을 사용하여
+                      재준님의 소중한 자산 정보를 안전하게 보호하고 있으니
+                      안심하셔도 됩니다.
+                    </p>
+                  </div>
+                </div>
+                <div class="faq-item">
+                  <button class="faq-q">
+                    Q. 마이퍼즐 서비스가 무엇인가요?
+                  </button>
+                  <div class="faq-a">
+                    <p>
+                      나의 흩어진 자산과 지원금 혜택들을 퍼즐 조각처럼 모아서
+                      한눈에 관리할 수 있도록 도와주는 맞춤형 대시보드
+                      서비스입니다.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="cs-sub-panel" id="panel-chat">
+              <h4 class="sub-panel-title">1:1 실시간 문의</h4>
+              <div class="cs-info-box">
+                <p>
+                  상담원과 실시간으로 대화를 나눌 수 있는 대화방으로 연결됩니다.
+                </p>
+                <p class="cs-time">🕒 상담 가능 시간: 평일 09:00 ~ 18:00</p>
+                <button class="cs-action-btn">실시간 상담방 입장하기</button>
+              </div>
+            </div>
+
+            <div class="cs-sub-panel" id="panel-guide">
+              <h4 class="sub-panel-title">자산플랜 이용 안내</h4>
+              <div class="cs-info-box">
+                <p><strong>스마트한 자산 관리의 시작!</strong></p>
+                <p>
+                  자산플랜 메뉴를 통해 매달 수입과 지출을 고정적으로 정산하고,
+                  미래 자산 예측 시뮬레이션을 돌려보실 수 있습니다.
+                </p>
+                <button class="cs-action-btn">자산플랜 보러가기</button>
+              </div>
+            </div>
           </div>
         </div>
       </div>
