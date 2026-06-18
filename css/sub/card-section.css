@@ -21,7 +21,7 @@
   max-width: 1200px;
   margin: 100px auto;
 }
-#card {
+.card-item {
   width: 250px;
   height: 350px;
   /* border: 1px solid #999; */
@@ -29,20 +29,28 @@
   overflow: hidden;
   font-family: "Noto Sans KR", sans-serif;
   box-shadow: 0 0px 10px rgba(0, 0, 0, 0.3);
+  transform: translateY(20px);
+  transition: 0.4s ease;
+  opacity: 0;
+  display: none;
+}
+.card-item.show {
+  transform: translateY(0);
+  opacity: 1;
 }
 /* 카드 전체 컨테이너 */
 .card-1,
-.card-3,
-.card-5,
+.card-2,
+.card-4,
+.card-6,
 .card-7{
    background-color: var(--sub-1);
 }
-.card-2,
-.card-8{
+.card-5{
    background-color: var(--sub-2);
 }
-.card-4,
-.card-6{
+.card-3,
+.card-8{
    background-color: var(--sub-3);
 }
 
@@ -93,15 +101,15 @@
   position: absolute;
   right: 5px;
   bottom: 5px;
-  font-size: 18px;
+  font-size: 20px;
   cursor: pointer;
 }
 
 /* 별 클릭 시 스타일 (JS 연동용) */
-.like .fa-solid {
+/* .like .fa-solid {
   color: #FAFF00; 
   -webkit-text-stroke: 1px #000;
-}
+} */
 
 /* 카드 하단 */
 .bottom {
@@ -129,4 +137,16 @@
   color: #333;
   line-height: 1rem;
   background-color: #f9f9f9;
+}
+.like i {
+  cursor: pointer;
+  transition: 0.25s;
+}
+
+.like i.active {
+  color: #ffc322;
+}
+
+.like i:hover {
+  transform: scale(1.1);
 }

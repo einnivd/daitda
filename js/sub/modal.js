@@ -5,6 +5,7 @@ $(document).ready(function () {
   let currentIndex = null;
   let selectedOption = null;
   let userAnswers = {};
+  let selectedCategories = [];
 
   // 퍼즐 완성도 업데이트
   function updateCompletion() {
@@ -153,6 +154,13 @@ $(document).ready(function () {
     // 답변 저장
     userAnswers[currentIndex] = selectedOption;
 
+    // 선택한 카테고리 저장
+    const category = puzzleData[currentIndex].category;
+
+    if (!selectedCategories.includes(category)) {
+      selectedCategories.push(category);
+    }
+
     console.log("사용자 답변:", userAnswers);
 
     // 해당 퍼즐 조각 활성화
@@ -171,7 +179,6 @@ $(document).ready(function () {
     $("#puzzle-modal").fadeOut(200);
   });
 
-
   // 닫기 버튼
   $(".close-btn").click(function () {
     $("#puzzle-modal").fadeOut(200);
@@ -183,4 +190,68 @@ $(document).ready(function () {
       $(this).fadeOut(200);
     }
   });
+
+// 결과 보기 버튼 클릭
+$(".result-btn").click(function () {
+
+  // 퍼즐 안 맞췄을 때
+  if (selectedCategories.length === 0) {
+    alert("퍼즐을 먼저 맞춰주세요.");
+    return;
+  }
+
+  let visibleCount = 0;
+
+  // 카드 전부 숨김
+  $(".card-item")
+  .hide()
+  .removeClass("show");
+
+  // 선택 카테고리와 같은 카드만 보여주기
+  $(".card-item").each(function () {
+    const cardCategory = $(this).data("category");
+
+    if (
+  selectedCategories.includes(
+    cardCategory
+  )
+) {
+  $(this)
+    .fadeIn(300)
+    .addClass("show");
+
+  visibleCount++;
+}
+  });
+
+  // 개수 변경
+  $("#benefit-count").text(visibleCount + "개");
+
+  // 카드 영역으로 스크롤
+  $("html, body").animate({
+    scrollTop: $(".count-section").offset().top - 100
+  }, 700);
+});
+
+// 찜하기(별) 버튼
+$(document).on(
+  "click",
+  ".like i",
+  function () {
+
+    // active 토글
+    $(this).toggleClass("active");
+
+    // 빈 별 ↔ 채워진 별 변경
+    if ($(this).hasClass("active")) {
+      $(this)
+        .removeClass("fa-regular")
+        .addClass("fa-solid");
+    } else {
+      $(this)
+        .removeClass("fa-solid")
+        .addClass("fa-regular");
+    }
+  }
+);
 });
