@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="css/sub/puzzle-game.css" />
     <link rel="stylesheet" href="css/sub/card-section.css" />
     <link rel="stylesheet" href="css/sub/recommend-section.css" />
+    <link rel="stylesheet" href="css/sub/cs.css" />
 
     <!-- 4. 폰트어썸 -->
     <link
@@ -76,103 +77,183 @@
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
 
     <!-- 6. 자바스크립트 (defer를 붙이면 HTML이 다 읽힌 후 실행) -->
-     <script src="js/main/main.js"></script>
+    <script src="js/main/main.js" defer></script>
     <script src="js/sub/recommend.js" defer></script>
     <script src="js/sub/modal.js" defer></script>
-
+    <script src="js/sub/cs.js" defer></script>
   </head>
   <body>
     <!-- 전체 영역 -->
     <div class="wrap">
-      <section class="header-section">
-      <img
-        src="images/main_page/image_32-removebg-preview 1.png"
-        alt=""
-        class="headercloud-left"
-      />
-
-      <img
-        src="images/main_page/image_32-removebg-preview 2.png"
-        alt=""
-        class="headercloud-right"
-      />
-
-      <header class="header">
-        <div class="header-inner">
-          <button class="menu-btn">
-            <span></span>
-            <span></span>
-            <span></span>
+      
+        <!-- CS -->
+        <div class="customer-service-wrap">
+          <button class="go-top-btn">
+            <i class="fa-solid fa-chevron-up"></i>
+            <span>TOP</span>
+          </button>
+          <button class="cs-fixed-btn">
+            <i class="fa-regular fa-comments"></i>
+            <span>CS</span>
           </button>
 
-          <nav class="nav left-nav">
+          <div class="cs-modal-box">
+            <div class="cs-modal-header">
+              <button class="cs-back-btn">
+                <i class="fa-solid fa-chevron-left"></i>
+              </button>
+              <h3 class="cs-title">DAITDA 고객센터</h3>
+              <button class="cs-close-btn">&times;</button>
+            </div>
+
+            <div class="cs-modal-body">
+              <div class="cs-main-panel active">
+                <p class="cs-greeting">
+                  안녕하세요, 재준님! 👋<br /><strong
+                    >무엇을 도와드릴까요?</strong
+                  >
+                </p>
+                <ul class="cs-menu-list">
+                  <li>
+                    <a href="#" class="cs-trigger" data-target="faq">
+                      <i class="fa-solid fa-circle-question"></i> 자주 묻는 질문
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#" class="cs-trigger" data-target="chat">
+                      <i class="fa-solid fa-headset"></i> 1:1 실시간 문의
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#" class="cs-trigger" data-target="guide">
+                      <i class="fa-solid fa-file-invoice-dollar"></i> 자산플랜
+                      이용 안내
+                    </a>
+                  </li>
+                </ul>
+              </div>
+
+              <div class="cs-sub-panel" id="panel-faq">
+                <h4 class="sub-panel-title">자주 묻는 질문</h4>
+                <div class="faq-accordion">
+                  <div class="faq-item">
+                    <button class="faq-q">
+                      Q. 청년지원금 신청은 어떻게 하나요?
+                    </button>
+                    <div class="faq-a">
+                      <p>
+                        청년지원 메뉴에서 본인의 연령과 지역을 설정하시면 현재
+                        신청 가능한 맞춤형 지원 정책을 바로 확인하고 신청하실 수
+                        있습니다.
+                      </p>
+                    </div>
+                  </div>
+                  <div class="faq-item">
+                    <button class="faq-q">
+                      Q. 자산플랜 데이터는 안전한가요?
+                    </button>
+                    <div class="faq-a">
+                      <p>
+                        DAITDA는 최고 수준의 암호화 보안 시스템을 사용하여
+                        재준님의 소중한 자산 정보를 안전하게 보호하고 있으니
+                        안심하셔도 됩니다.
+                      </p>
+                    </div>
+                  </div>
+                  <div class="faq-item">
+                    <button class="faq-q">
+                      Q. 마이퍼즐 서비스가 무엇인가요?
+                    </button>
+                    <div class="faq-a">
+                      <p>
+                        나의 흩어진 자산과 지원금 혜택들을 퍼즐 조각처럼 모아서
+                        한눈에 관리할 수 있도록 도와주는 맞춤형 대시보드
+                        서비스입니다.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="cs-sub-panel" id="panel-chat">
+                <h4 class="sub-panel-title">1:1 실시간 문의</h4>
+                <div class="cs-info-box">
+                  <p>
+                    상담원과 실시간으로 대화를 나눌 수 있는 대화방으로
+                    연결됩니다.
+                  </p>
+                  <p class="cs-time">🕒 상담 가능 시간: 평일 09:00 ~ 18:00</p>
+                  <button class="cs-action-btn">실시간 상담방 입장하기</button>
+                </div>
+              </div>
+
+              <div class="cs-sub-panel" id="panel-guide">
+                <h4 class="sub-panel-title">자산플랜 이용 안내</h4>
+                <div class="cs-info-box">
+                  <p><strong>스마트한 자산 관리의 시작!</strong></p>
+                  <p>
+                    자산플랜 메뉴를 통해 매달 수입과 지출을 고정적으로 정산하고,
+                    미래 자산 예측 시뮬레이션을 돌려보실 수 있습니다.
+                  </p>
+                  <button class="cs-action-btn">자산플랜 보러가기</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      <section class="header-section">
+        <img
+          src="images/main_page/image_32-removebg-preview 1.png"
+          alt="구름오브제"
+          class="headercloud-left"
+        />
+
+        <img
+          src="images/main_page/image_32-removebg-preview 2.png"
+          alt="구름오브제"
+          class="headercloud-right"
+        />
+
+        <header class="header">
+          <div class="header-inner">
+            <button class="menu-btn">
+              <span></span>
+              <span></span>
+              <span></span>
+            </button>
+
+            <nav class="nav left-nav">
+              <a href="sub.html">마이퍼즐</a>
+              <a href="#">청년지원</a>
+            </nav>
+
+            <h1 class="logo">
+              <a href="index.html">
+                <img src="images/main_page/Asset 19.png" alt="BAITDA 로고" />
+              </a>
+            </h1>
+
+            <nav class="nav right-nav">
+              <a href="#">자산플랜</a>
+              <a href="#">내가찜한</a>
+            </nav>
+
+            <a href="#" class="user-btn">
+              <i class="fa-regular fa-user"></i>
+            </a>
+          </div>
+        </header>
+
+        <div class="mobile-menu-overlay">
+          <nav class="mobile-nav">
             <a href="sub.html">마이퍼즐</a>
             <a href="#">청년지원</a>
-          </nav>
-
-          <h1 class="logo">
-            <a href="index.html">
-              <img src="images/main_page/Asset 19.png" alt="BAITDA 로고" />
-            </a>
-          </h1>
-
-          <nav class="nav right-nav">
             <a href="#">자산플랜</a>
             <a href="#">내가찜한</a>
           </nav>
-
-          <a href="#" class="user-btn">
-            <i class="fa-regular fa-user"></i>
-          </a>
         </div>
-      </header>
 
-      <div class="mobile-menu-overlay">
-        <nav class="mobile-nav">
-          <a href="sub.html">마이퍼즐</a>
-          <a href="#">청년지원</a>
-          <a href="#">자산플랜</a>
-          <a href="#">내가찜한</a>
-        </nav>
-      </div>
-
-      <div class="customer-service-wrap">
-        <button class="cs-fixed-btn">
-          <i class="fa-regular fa-comments"></i>
-          <span>CS</span>
-        </button>
-
-        <div class="cs-modal-box">
-          <div class="cs-modal-header">
-            <h3>DAITDA 고객센터</h3>
-            <button class="cs-close-btn">&times;</button>
-          </div>
-          <div class="cs-modal-body">
-            <p class="cs-greeting">
-              안녕하세요, 재준님! 👋<br /><strong>무엇을 도와드릴까요?</strong>
-            </p>
-            <ul class="cs-menu-list">
-              <li>
-                <a href="#"
-                  ><i class="fa-solid fa-circle-question"></i> 자주 묻는 질문</a
-                >
-              </li>
-              <li>
-                <a href="#"
-                  ><i class="fa-solid fa-headset"></i> 1:1 실시간 문의</a
-                >
-              </li>
-              <li>
-                <a href="#"
-                  ><i class="fa-solid fa-file-invoice-dollar"></i> 자산플랜 이용
-                  안내</a
-                >
-              </li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </section>
+      </section>
       <div class="inner">
         <!-- 배경 퍼즐 조각 -->
         <!-- <div class="background-piece">
@@ -209,7 +290,7 @@
               <p>교육</p>
               <p>주거/생활</p>
               <p>창업</p>
-              <p>의료/건강</p>
+              <p>보건/의료</p>
               <p>복지</p>
               <p>문화/예술</p>
             </div>
@@ -233,7 +314,7 @@
               <p>교육</p>
               <p>주거/생활</p>
               <p>창업</p>
-              <p>의료/건강</p>
+              <p>보건/의료</p>
               <p>복지</p>
               <p>문화/예술</p>
             </div>
@@ -248,7 +329,12 @@
           <div class="modal-wrap" id="puzzle-modal" style="display: none">
             <div id="modal-box">
               <!-- 퍼즐 조각 배경 이미지 -->
-               <img src="" alt="모달퍼즐" id="modal-puzzle-shape" class="modal-puzzle-shape">
+              <img
+                src=""
+                alt="모달퍼즐"
+                id="modal-puzzle-shape"
+                class="modal-puzzle-shape"
+              />
               <!-- [상단] 닫기 버튼과 카테고리 태그 -->
               <div class="modal-header">
                 <span id="modal-category" class="category-tag">카테고리명</span>
@@ -261,15 +347,13 @@
                 <div id="option-container" class="option-buttons">
                   <!-- 버튼들은 JS에서 생성 -->
                 </div>
-                <div id="complete-btn">
-                  완료
-                </div>
+                <div id="complete-btn">완료</div>
               </div>
             </div>
           </div>
           <!-- 퍼즐 완성도 -->
           <div class="completion">
-            <p>나의 퍼즐 완성도:  <span id="completion-percent">0%</span></p>
+            <p>나의 퍼즐 완성도: <span id="completion-percent">0%</span></p>
             <div class="completion-box">
               <div class="completion-fill">
                 <img src="images/sub_page/graph.png" alt="퍼즐 완성도" />
@@ -283,11 +367,13 @@
         </section>
         <!-- 맞춤형 혜택 개수 섹션 -->
         <section class="count-section">
-          <p>퍼즐로 완성된 나의 맞춤 혜택 <span>8개</span></p>
+          <p>
+            퍼즐로 완성된 나의 맞춤 혜택 <span id="benefit-count">0개</span>
+          </p>
         </section>
         <!-- 맞춤형 카드 섹션 -->
         <section class="card-section">
-          <div class="card-1" id="card">
+          <div class="card-1 card-item" data-category="취업지원">
             <!-- 카드 상단 -->
             <div class="top">
               <p class="card-category">취업지원</p>
@@ -308,7 +394,7 @@
               </div>
             </div>
           </div>
-          <div class="card-2" id="card">
+          <div class="card-2 card-item" data-category="주거/생활">
             <!-- 카드 상단 -->
             <div class="top">
               <p class="card-category">주거/생활</p>
@@ -329,7 +415,7 @@
               </div>
             </div>
           </div>
-          <div class="card-3" id="card">
+          <div class="card-3 card-item" data-category="교육">
             <!-- 카드 상단 -->
             <div class="top">
               <p class="card-category">교육</p>
@@ -350,7 +436,7 @@
               </div>
             </div>
           </div>
-          <div class="card-4" id="card">
+          <div class="card-4 card-item" data-category="청년금융">
             <!-- 카드 상단 -->
             <div class="top">
               <p class="card-category">청년금융</p>
@@ -371,7 +457,7 @@
               </div>
             </div>
           </div>
-          <div class="card-5" id="card">
+          <div class="card-5 card-item" data-category="진로">
             <!-- 카드 상단 -->
             <div class="top">
               <p class="card-category">진로</p>
@@ -392,7 +478,7 @@
               </div>
             </div>
           </div>
-          <div class="card-6" id="card">
+          <div class="card-6 card-item" data-category="문화/예술">
             <!-- 카드 상단 -->
             <div class="top">
               <p class="card-category">문화/예술</p>
@@ -413,7 +499,7 @@
               </div>
             </div>
           </div>
-          <div class="card-7" id="card">
+          <div class="card-7 card-item" data-category="보건/의료">
             <!-- 카드 상단 -->
             <div class="top">
               <p class="card-category">보건/의료</p>
@@ -434,7 +520,7 @@
               </div>
             </div>
           </div>
-          <div class="card-8" id="card">
+          <div class="card-8 card-item" data-category="창업">
             <!-- 카드 상단 -->
             <div class="top">
               <p class="card-category">창업</p>
@@ -558,7 +644,7 @@
         <div class="footer-inner">
           <!-- 왼쪽 로고 -->
           <div class="footer-logo">
-            <img src="images/main_page/Asset 19 2.png" alt="청년 다잇다 로고" />
+            <img src="images/main_page/Asset 19.png" alt="청년 다잇다 로고" />
           </div>
           <!-- 오른쪽 정보 -->
           <div class="footer-right">
