@@ -183,18 +183,18 @@ if (csBtn && csModal && csCloseBtn) {
   // 3) 메뉴 초기화 함수 (메인 화면으로 돌려놓기)
   function resetPanels() {
     mainPanel.classList.add("active");
-    subPanels.forEach(panel => panel.classList.remove("active"));
+    subPanels.forEach((panel) => panel.classList.remove("active"));
     if (csBackBtn) csBackBtn.style.display = "none";
-    
+
     // 아코디언 열려있던 것들도 싹 닫기
-    document.querySelectorAll(".faq-item").forEach(item => {
+    document.querySelectorAll(".faq-item").forEach((item) => {
       item.classList.remove("open");
       item.querySelector(".faq-a").style.maxHeight = null;
     });
   }
 
   // 4) 서브 메뉴 클릭 시 패널 스위칭 이벤트 등록
-  triggers.forEach(trigger => {
+  triggers.forEach((trigger) => {
     trigger.addEventListener("click", (e) => {
       e.preventDefault();
       const targetId = trigger.getAttribute("data-target");
@@ -218,7 +218,7 @@ if (csBtn && csModal && csCloseBtn) {
 
   // 6) FAQ 아코디언 기능 구현
   const faqQuestions = document.querySelectorAll(".faq-q");
-  faqQuestions.forEach(q => {
+  faqQuestions.forEach((q) => {
     q.addEventListener("click", (e) => {
       const currentItem = q.parentElement;
       const answer = currentItem.querySelector(".faq-a");
@@ -229,7 +229,7 @@ if (csBtn && csModal && csCloseBtn) {
         answer.style.maxHeight = null;
       } else {
         // 다른 열려있는 질문이 있다면 먼저 닫아주는 센스 (선택 사항)
-        document.querySelectorAll(".faq-item").forEach(item => {
+        document.querySelectorAll(".faq-item").forEach((item) => {
           item.classList.remove("open");
           item.querySelector(".faq-a").style.maxHeight = null;
         });
@@ -247,3 +247,74 @@ if (csBtn && csModal && csCloseBtn) {
     }
   });
 }
+// 고탑버튼
+document.querySelector(".go-top-btn").addEventListener("click", () => {
+  window.scrollTo({ top: 0, behavior: "smooth" });
+});
+// ===================================================
+// 무한 반복 타이핑 & 백스페이스 삭제 효과 스크립트
+// ===================================================
+document.addEventListener("DOMContentLoaded", () => {
+  const titleText = "청년 혜택, 여기 다 있다!";
+  const subText = "흩어진 혜택 조회를, 내 조건에 맞게";
+
+  const titleEl = document.getElementById("type-title");
+  const subEl = document.getElementById("type-subtitle");
+
+  let titleIndex = 0;
+  let subIndex = 0;
+  let isDeleting = false; // 현재 지우는 중인지 체크하는 플래그
+
+  // 속도 세팅 (밀리초 단위)
+  const typingSpeed = 100; // 글자 써지는 속도
+  const deleteSpeed = 50; // 글자 지워지는 속도 (백스페이스니까 좀 더 빠르게)
+  const waitTime = 2000; // 글자가 다 써지고 나서 멈춰있는 시간 (2초)
+
+  function playTyping() {
+    // 1. 글자를 쓰는 대기 상태일 때
+    if (!isDeleting) {
+      // 메인 타이틀 먼저 작성
+      if (titleIndex < titleText.length) {
+        titleEl.innerHTML += titleText.charAt(titleIndex);
+        titleIndex++;
+        setTimeout(playTyping, typingSpeed);
+      }
+      // 메인 다 쓰면 서브 타이틀 작성
+      else if (subIndex < subText.length) {
+        subEl.innerHTML += subText.charAt(subIndex);
+        subIndex++;
+        setTimeout(playTyping, typingSpeed);
+      }
+      // 둘 다 다 쓰면 waitTime(2초) 만큼 대기했다가 삭제 모드로 전환
+      else {
+        setTimeout(() => {
+          isDeleting = true;
+          playTyping();
+        }, waitTime);
+      }
+    }
+    // 2. 백스페이스로 글자를 지우는 상태일 때
+    else {
+      // 서브 타이틀부터 뒤에서부터 한 글자씩 지움
+      if (subIndex > 0) {
+        subIndex--;
+        subEl.innerHTML = subText.substring(0, subIndex);
+        setTimeout(playTyping, deleteSpeed);
+      }
+      // 서브 타이틀 다 지우면 메인 타이틀 지움
+      else if (titleIndex > 0) {
+        titleIndex--;
+        titleEl.innerHTML = titleText.substring(0, titleIndex);
+        setTimeout(playTyping, deleteSpeed);
+      }
+      // 다 지웠으면 다시 작성 모드로 전환해서 처음부터 시작
+      else {
+        isDeleting = false;
+        setTimeout(playTyping, 500); // 완전히 지워지고 0.5초 쉬었다가 다시 타이핑
+      }
+    }
+  }
+
+  // 첫 실행
+  setTimeout(playTyping, 500);
+});

@@ -177,25 +177,45 @@ SECTION 02
 }
 
 /* =========================
-타이틀
+타이틀 & 타이핑 스타일
 ========================= */
 .youth-title {
   text-align: center;
   color: #fff;
   position: relative;
   z-index: 20;
+  min-height: 110px; /* 타이핑 도중 컨텐츠 들썩거림 방지 */
 }
 
 .youth-title p {
   font-family: "Black Han Sans", sans-serif;
   font-size: 52px;
   line-height: 1.1;
+  margin-bottom: 10px;
+  min-height: 58px;
+}
+
+.sub-title-wrap {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .youth-title span {
   font-family: "Noto Sans KR", sans-serif;
   font-size: 25px;
   opacity: 0.9;
+}
+
+/* 타이핑 커서 스타일 */
+.typing-cursor {
+  display: inline-block;
+  width: 2px;
+  height: 24px;
+  background-color: #9b73fc; /* 포인트 보라색 커서 */
+  margin-left: 4px;
+  animation: blink 0.6s step-end infinite;
+  vertical-align: middle;
 }
 
 /* =========================
@@ -225,8 +245,13 @@ SECTION 02
   top: 300px;
   text-align: center;
   color: #fff;
-  font-size: 50px;
-  line-height: 1.3;
+
+  /* 여기서부터 .feature-title과 동일하게 세팅 */
+  font-weight: normal;
+  font-size: 46px;
+  line-height: 1.28;
+  letter-spacing: 0.04em;
+  text-shadow: none;
 }
 
 /* =========================
@@ -284,8 +309,6 @@ SECTION 02
   overflow: hidden;
   isolation: isolate;
   backdrop-filter: blur(10px);
-
-  /* 호버 스무스 효과 추가 */
   transition:
     transform 0.35s ease,
     box-shadow 0.35s ease;
@@ -296,7 +319,7 @@ SECTION 02
 카드 호버 효과
 ========================= */
 .info-card:hover {
-  transform: scale(1.045);
+  transform: scale(1.045) !important;
   box-shadow: 0 24px 45px rgba(0, 0, 0, 0.22);
 }
 
@@ -405,45 +428,37 @@ SECTION 02
   height: 475px;
   margin-top: 100px;
 }
-
 .info-card:nth-child(2) {
   height: 285px;
   margin-top: 70px;
 }
-
 .info-card:nth-child(3) {
   height: 285px;
   margin-top: 115px;
 }
-
 .info-card:nth-child(4) {
   height: 285px;
   margin-top: 85px;
 }
-
 .info-card:nth-child(5) {
   height: 460px;
   margin-top: 40px;
 }
-
 .info-card:nth-child(6) {
   height: 285px;
   margin-top: -215px;
 }
-
 .info-card:nth-child(7) {
   height: 285px;
   margin-top: -170px;
 }
-
 .info-card:nth-child(8) {
   height: 285px;
   margin-top: -200px;
 }
 
 /* =========================
-큰 화면 반응형 오브제 정리
-1720px 이하부터 퍼즐 4개만 유지
+반응형 및 애니메이션 처리 구간
 ========================= */
 @media (max-width: 1720px) {
   .youth-section .puzzle-left1,
@@ -454,7 +469,6 @@ SECTION 02
     visibility: visible !important;
     opacity: 1;
   }
-
   .youth-section .cloud-left,
   .youth-section .cloud-right,
   .youth-section .sparkle-left,
@@ -468,10 +482,6 @@ SECTION 02
   }
 }
 
-/* =========================
-중간 PC 반응형
-1620px 이하: 4개씩 2줄 / 정사각형 카드
-========================= */
 @media (max-width: 1620px) and (min-width: 1281px) {
   .card-wrap {
     max-width: 1320px;
@@ -482,84 +492,58 @@ SECTION 02
     justify-content: center;
     align-items: stretch;
   }
-
   .info-card,
-  .info-card:nth-child(1),
-  .info-card:nth-child(2),
-  .info-card:nth-child(3),
-  .info-card:nth-child(4),
-  .info-card:nth-child(5),
-  .info-card:nth-child(6),
-  .info-card:nth-child(7),
-  .info-card:nth-child(8) {
+  .info-card:nth-child(n) {
     width: 100%;
     aspect-ratio: 1 / 1;
     height: auto !important;
     margin-top: 0 !important;
     transform: none !important;
   }
-
-  .info-card {
-    padding: 24px;
-  }
-
   .category {
     font-size: 18px;
     margin-bottom: 16px;
   }
-
   .info-card p {
     font-size: 17px;
     line-height: 1.55;
   }
-
   .card-wrap span {
     font-size: 22px;
   }
-
   .card-quote {
     width: 44px;
     top: 16px;
     right: 18px;
   }
-
   .info-card:nth-child(1) .card-quote,
   .info-card:nth-child(5) .card-quote {
     width: 48px;
   }
-
   .info-card.blue:nth-child(1)::after,
   .info-card.blue:nth-child(3)::after,
   .info-card.blue:nth-child(8)::after {
     width: 200px;
     height: 200px;
   }
-
   .info-card.blue:nth-child(1)::after {
     left: 95px;
     bottom: -65px;
   }
-
   .info-card.blue:nth-child(3)::after {
     right: 45px;
     top: 45px;
   }
-
   .info-card.blue:nth-child(8)::after {
     right: -55px;
     top: 105px;
   }
 }
 
-/* =========================
-작은 PC / 큰 태블릿
-1280px 이하: 3개씩 3줄 느낌
-========================= */
 @media (max-width: 1280px) and (min-width: 1101px) {
   .youth-section {
     min-height: 2350px;
   }
-
   .card-wrap {
     max-width: 780px;
     padding-top: 670px;
@@ -569,90 +553,66 @@ SECTION 02
     justify-content: center;
     align-items: stretch;
   }
-
   .info-card,
-  .info-card:nth-child(1),
-  .info-card:nth-child(2),
-  .info-card:nth-child(3),
-  .info-card:nth-child(4),
-  .info-card:nth-child(5),
-  .info-card:nth-child(6),
-  .info-card:nth-child(7),
-  .info-card:nth-child(8) {
+  .info-card:nth-child(n) {
     width: 220px;
     height: 220px !important;
     aspect-ratio: 1 / 1;
     margin-top: 0 !important;
     transform: none !important;
   }
-
   .info-card {
     padding: 20px;
   }
-
   .category {
     font-size: 16px;
     margin-bottom: 12px;
   }
-
   .info-card p {
     font-size: 14.5px;
     line-height: 1.5;
   }
-
   .card-wrap span {
     font-size: 18px;
   }
-
   .card-quote {
     width: 36px;
     top: 14px;
     right: 16px;
   }
-
   .info-card:nth-child(1) .card-quote,
   .info-card:nth-child(5) .card-quote {
     width: 40px;
   }
-
   .info-card.blue:nth-child(1)::after,
   .info-card.blue:nth-child(3)::after,
   .info-card.blue:nth-child(8)::after {
     width: 145px;
     height: 145px;
   }
-
   .info-card.blue:nth-child(1)::after {
     left: 65px;
     bottom: -45px;
   }
-
   .info-card.blue:nth-child(3)::after {
     right: 28px;
     top: 28px;
   }
-
   .info-card.blue:nth-child(8)::after {
     right: -42px;
     top: 75px;
   }
 }
 
-/* =========================
-태블릿
-1100px 이하: 2열 카드 정렬
-========================= */
 @media (max-width: 1100px) {
   .youth-section {
     min-height: auto;
     padding-top: 70px;
     padding-bottom: 180px;
   }
-
   .youth-section::before {
     height: 1060px;
   }
-
   .youth-section .puzzle-left1,
   .youth-section .puzzle-right1,
   .youth-section .puzzle-small-left,
@@ -661,70 +621,62 @@ SECTION 02
     visibility: visible !important;
     opacity: 0.85;
   }
-
   .puzzle-left1 {
     top: 220px;
     width: 120px;
     --x: -510px;
   }
-
   .puzzle-right1 {
     top: 220px;
     width: 120px;
     --x: 390px;
   }
-
   .puzzle-small-left {
     top: 380px;
     width: 70px;
     --x: -475px;
   }
-
   .puzzle-small-right {
     top: 370px;
     width: 75px;
     --x: 400px;
   }
-
   .youth-top {
     padding-top: 120px;
     min-height: 1040px;
   }
-
   .youth-title p {
     font-size: 42px;
+    min-height: auto;
   }
-
   .youth-title span {
     font-size: 18px;
   }
-
+  .typing-cursor {
+    height: 20px;
+  }
   .youth-character {
     top: 250px;
   }
-
   .youth-character img {
     width: 480px;
   }
-
   .youth-desc {
     margin-top: 610px;
     top: 0;
-    font-size: 30px;
-    line-height: 1.35;
+    /* .feature-title 1100px 이하 기준과 동기화 */
+    font-size: 38px;
+    line-height: 1.28;
   }
-
   .youth-bottom {
     margin-top: 60px;
     min-height: 1300px;
   }
-
   .youth-bg {
     top: -600px;
     width: 1900px;
     height: 1670px;
   }
-
   .card-wrap {
     top: -160px;
     max-width: 760px;
@@ -735,171 +687,125 @@ SECTION 02
     align-items: stretch;
     justify-content: center;
   }
-
   .info-card,
-  .info-card:nth-child(1),
-  .info-card:nth-child(2),
-  .info-card:nth-child(3),
-  .info-card:nth-child(4),
-  .info-card:nth-child(5),
-  .info-card:nth-child(6),
-  .info-card:nth-child(7),
-  .info-card:nth-child(8) {
+  .info-card:nth-child(n) {
     width: auto;
     height: 260px;
     margin-top: 0 !important;
     transform: none !important;
   }
-
   .card-wrap span {
     font-size: 20px;
   }
-
   .category {
     font-size: 18px;
     margin-bottom: 16px;
   }
-
   .info-card p {
     font-size: 16px;
     line-height: 1.55;
   }
-
   .card-quote {
     width: 38px;
     top: 14px;
     right: 16px;
   }
-
   .info-card:nth-child(1) .card-quote,
   .info-card:nth-child(5) .card-quote {
     width: 42px;
   }
-
   .info-card.blue:nth-child(1)::after,
   .info-card.blue:nth-child(3)::after,
   .info-card.blue:nth-child(8)::after {
     width: 170px;
     height: 170px;
   }
-
   .info-card.blue:nth-child(1)::after {
     left: -55px;
     bottom: -70px;
   }
-
   .info-card.blue:nth-child(3)::after {
     right: -45px;
     top: -45px;
   }
-
   .info-card.blue:nth-child(8)::after {
     right: -45px;
     top: -50px;
   }
 }
 
-/* =========================
-작은 태블릿
-========================= */
 @media (max-width: 850px) {
   .youth-section::before {
     height: 980px;
   }
-
   .youth-top {
     min-height: 980px;
   }
-
   .youth-section .puzzle-left1,
   .youth-section .puzzle-right1,
   .youth-section .puzzle-small-left,
   .youth-section .puzzle-small-right {
     opacity: 0.55;
   }
-
   .puzzle-left1 {
     top: 230px;
     width: 85px;
     --x: -405px;
   }
-
   .puzzle-right1 {
     top: 230px;
     width: 85px;
     --x: 320px;
   }
-
   .puzzle-small-left {
     top: 350px;
     width: 48px;
     --x: -380px;
   }
-
   .puzzle-small-right {
     top: 345px;
     width: 52px;
     --x: 340px;
   }
-
   .youth-title p {
     font-size: 38px;
   }
-
   .youth-title span {
     font-size: 16px;
   }
-
   .youth-character {
     top: 240px;
   }
-
   .youth-character img {
     width: 420px;
   }
-
-  /* vw 단위를 적용해서 화면 너비에 맞춰 스르륵 줄어들도록 수정 */
   .youth-desc {
-    margin-top: 560px;
-    font-size: 3.2vw;
-    line-height: 1.35;
+    margin-top: 530px;
+    font-size: 38px; /* 700px 전까지 38px 유지 */
+    line-height: 1.28;
   }
-
   .youth-bottom {
     margin-top: 50px;
     min-height: 1200px;
   }
-
   .youth-bg {
     width: 1650px;
     height: 1600px;
   }
-
   .card-wrap {
     top: -450px;
     max-width: 660px;
     padding-top: 280px;
     gap: 20px;
   }
-
   .info-card,
-  .info-card:nth-child(1),
-  .info-card:nth-child(2),
-  .info-card:nth-child(3),
-  .info-card:nth-child(4),
-  .info-card:nth-child(5),
-  .info-card:nth-child(6),
-  .info-card:nth-child(7),
-  .info-card:nth-child(8) {
+  .info-card:nth-child(n) {
     height: 245px;
     margin-top: 0 !important;
     transform: none !important;
   }
 }
 
-/* =========================
-모바일 직전
-========================= */
 @media (max-width: 720px) {
   .youth-section .puzzle-left1,
   .youth-section .puzzle-right1,
@@ -909,25 +815,21 @@ SECTION 02
     filter: drop-shadow(0 0 6px rgba(255, 255, 255, 0.2))
       drop-shadow(0 0 12px rgba(255, 255, 255, 0.12));
   }
-
   .puzzle-left1 {
     top: 230px;
     width: 55px;
     --x: -350px;
   }
-
   .puzzle-right1 {
     top: 230px;
     width: 55px;
     --x: 295px;
   }
-
   .puzzle-small-left {
     top: 330px;
     width: 32px;
     --x: -332px;
   }
-
   .puzzle-small-right {
     top: 330px;
     width: 34px;
@@ -935,20 +837,15 @@ SECTION 02
   }
 }
 
-/* =========================
-모바일
-========================= */
 @media (max-width: 600px) {
   .youth-section {
     min-height: auto;
     padding-top: 60px;
     padding-bottom: 110px;
   }
-
   .youth-section::before {
     height: 780px;
   }
-
   .youth-section .puzzle-left1,
   .youth-section .puzzle-right1,
   .youth-section .puzzle-small-left,
@@ -964,51 +861,45 @@ SECTION 02
     visibility: hidden !important;
     opacity: 0 !important;
   }
-
   .youth-top {
     padding-top: 80px;
     min-height: 820px;
   }
-
   .youth-title p {
     font-size: 32px;
     line-height: 1.15;
   }
-
   .youth-title span {
     font-size: 14px;
   }
-
+  .typing-cursor {
+    height: 16px;
+  }
   .youth-section .youth-character {
     display: block !important;
     visibility: visible !important;
     opacity: 1 !important;
     top: 210px;
   }
-
   .youth-character img {
     width: 300px;
   }
-
-  /* 모바일 화면 너비에 맞춰 유연하게 줄어들도록 vw로 세팅 */
   .youth-desc {
-    margin-top: 430px;
+    margin-top: 400px;
     top: 0;
-    font-size: 4.2vw;
-    line-height: 1.4;
+    /* .feature-title 700px 이하 기준과 동기화 */
+    font-size: 30px;
+    line-height: 1.28;
   }
-
   .youth-bottom {
     margin-top: 30px;
     min-height: auto;
   }
-
   .youth-bg {
     top: -500px;
     width: 1500px;
     height: 2100px;
   }
-
   .card-wrap {
     max-width: 100%;
     padding: 270px 20px 0;
@@ -1016,123 +907,96 @@ SECTION 02
     grid-template-columns: 1fr;
     gap: 18px;
   }
-
   .info-card,
-  .info-card:nth-child(1),
-  .info-card:nth-child(2),
-  .info-card:nth-child(3),
-  .info-card:nth-child(4),
-  .info-card:nth-child(5),
-  .info-card:nth-child(6),
-  .info-card:nth-child(7),
-  .info-card:nth-child(8) {
+  .info-card:nth-child(n) {
     width: 100%;
     height: auto !important;
     min-height: 190px;
     margin-top: 0 !important;
     transform: none !important;
   }
-
   .card-wrap span {
     font-size: 18px;
   }
-
   .category {
     font-size: 17px;
     margin-bottom: 14px;
   }
-
   .info-card p {
     font-size: 15px;
     line-height: 1.55;
   }
-
   .card-quote {
     width: 36px;
     top: 14px;
     right: 16px;
   }
-
   .info-card:nth-child(1) .card-quote,
   .info-card:nth-child(5) .card-quote {
     width: 38px;
   }
-
   .info-card.blue:nth-child(1)::after,
   .info-card.blue:nth-child(3)::after,
   .info-card.blue:nth-child(8)::after {
     width: 150px;
     height: 150px;
   }
-
   .info-card.blue:nth-child(1)::after {
     left: -45px;
     bottom: -55px;
   }
-
   .info-card.blue:nth-child(3)::after {
     right: -42px;
     top: -42px;
   }
-
   .info-card.blue:nth-child(8)::after {
     right: -42px;
     top: -42px;
   }
 }
 
-/* =========================
-아주 작은 모바일
-========================= */
 @media (max-width: 390px) {
   .youth-section::before {
     height: 740px;
   }
-
   .youth-top {
     min-height: 780px;
   }
-
   .youth-title p {
     font-size: 28px;
   }
-
   .youth-character img {
     width: 270px;
   }
-
-  /* 초소형 디바이스 대응 */
   .youth-desc {
-    margin-top: 405px;
-    font-size: 4.5vw;
-    line-height: 1.35;
+    margin-top: 350px;
+    font-size: 30px; /* 모바일 최하단도 30px로 통일 */
+    line-height: 1.28;
   }
-
   .card-wrap {
     padding: 270px 16px 0;
   }
-
   .info-card {
     padding: 22px;
     border-radius: 22px;
   }
-
   .info-card p {
     font-size: 14px;
   }
 }
 
-/* =========================
-반응형 transform 초기화보다 hover가 우선 적용되도록 보정
-========================= */
-.info-card:hover {
-  transform: scale(1.045) !important;
-  box-shadow: 0 24px 45px rgba(0, 0, 0, 0.22);
+/* 커서 깜빡임 애니메이션 */
+@keyframes blink {
+  from,
+  to {
+    background-color: transparent;
+  }
+  50% {
+    background-color: #9b73fc;
+  }
 }
 
-/* =========================
-큰 퍼즐 애니메이션
-========================= */
+/* 기존 오브제 애니메이션 유지 */
 @keyframes floatBigLeft {
   0% {
     transform: translate(var(--x), 0px) rotate(0deg);
@@ -1144,7 +1008,6 @@ SECTION 02
     transform: translate(var(--x), 0px) rotate(0deg);
   }
 }
-
 @keyframes floatBigRight {
   0% {
     transform: translate(var(--x), 0px) rotate(0deg);
@@ -1156,10 +1019,6 @@ SECTION 02
     transform: translate(var(--x), 0px) rotate(0deg);
   }
 }
-
-/* =========================
-작은 퍼즐 애니메이션
-========================= */
 @keyframes floatPuzzleLeft {
   0% {
     transform: translate(var(--x), 0px) rotate(-25deg);
@@ -1171,7 +1030,6 @@ SECTION 02
     transform: translate(var(--x), 0px) rotate(-25deg);
   }
 }
-
 @keyframes floatPuzzleRight {
   0% {
     transform: translate(var(--x), 0px) rotate(18deg);
